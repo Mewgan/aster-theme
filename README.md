@@ -1,1 +1,1 @@
-"# aster-theme" 
+# aster-theme 
