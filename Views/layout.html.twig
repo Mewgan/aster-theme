@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% block head %}
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="{% block description %}{% endblock %}">
+        {# debugbar #}
+        {{ debug_bar_header()|raw }}
+        {# End debugbar #}
+
+        {% for stylesheet in data.stylesheets %}
+            {% if stylesheet.type == 'file' %}
+                <link rel="stylesheet" href="{{ asset(stylesheet.content) }}">
+            {% else %}
+                <style>
+                    {{ stylesheet.content }}
+                </style>
+            {% endif %}
+        {% endfor %}
+
+        {% for library in data.libraries %}
+            {% if library.category == 'css' %}
+                {% if library.type == 'file' %}
+                    <link rel="stylesheet" href="{{ asset(library.path) }}">
+                {% else %}
+                    <link rel="stylesheet" href="{{ library.path }}">
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        <link href="https://fonts.googleapis.com/css?family=Lato|Poiret+One|Rambla" rel="stylesheet">
+        <link rel="stylesheet" href="{{ theme_asset('normalize.css') }}">
+        <link rel="stylesheet" href="{{ theme_asset('salon-font.css') }}">
+        <link rel="stylesheet" href="{{ theme_asset('plugins.css') }}">
+        <link rel="stylesheet" href="{{ theme_asset('style.css') }}">
+
+        <style>
+            #intro .logo {
+                background-image: url({{ img(field_render('loading_media').path) }});
+            }
+        </style>
+        {% block css %}{% endblock %}
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    {% endblock %}
+
+</head>
+<body class="{% block bodyClass %}{% endblock %} panelsnap onepage flexheader">
+
+{% set salon = data_render('Jet\\Models\\Society', ['s.name']) %}
+
+<div id="intro">
+    <div class="logo"></div>
+    <div class="loading">
+        <div class="loader1"></div>
+    </div>
+</div>
+<section id="hero" data-panel="hero">
+    <div class="content imgLiquid">
+        <div class="tagline">
+            <h1>{{ salon.name }}</h1>
+            <h2>{{ field_render('header_subtitle') }}</h2>
+        </div>
+        {% set header_background = field_render('header_background') %}
+        <img src="{{ img(header_background.path) }}" alt="{{ header_background.alt }}">
+    </div>
+</section>
+
+<header>
+    <h1>
+        <a href="{{ path('') }}" title="{{ salon_title }}">
+            <img data-src="{{ img(data.website.logo.path) }}" class="lazyload" alt="{{ data.website.logo.alt }}">
+        </a>
+    </h1>
+    <nav id="mainmenu" class="menu-horizontal">
+        {{ content_render('navigation') }}
+    </nav>
+
+    {% set socials = field_render('social_networks') %}
+    <div id="socialshare">
+        <a id="socialshare_trigger" class="icon-"></a>
+        <nav class="animated">
+            <ul>
+                {% for social in socials %}
+                    <li><a href="{{ social.link }}">{{ social.name }}</a></li>
+                {% endfor %}
+            </ul>
+
+        </nav>
+    </div>
+
+</header>
+
+{% block page %}
+{% endblock %}
+
+<section id="contact" data-panel="contact" class="col-3 stripes stripes-1">
+    <article>
+        <div class="hlblock left_bloc">
+            <h2>Heures d'ouverture</h2>
+            {{ field_render('opening_hours') | raw }}
+        </div><div class="hlblock right_bloc">
+            <h2>Notre adresse</h2>
+            {% set address = data_render('Jet\\Models\\Address', ['a.address','a.city','a.postal_code','a.country','a.latitude','a.longitude']) %}
+            <p>{{ address.address }}<br/>
+                {{ address.postal_code }} {{ address.city }}<br/>
+                {{ address.country }}
+            </p>
+        </div>
+    </article>
+
+</section>
+
+<section id="map" data-panel="map" class="tophead maps">
+    <article>
+        <div class="hlblock">
+            <h1>Où nous trouver</h1>
+            <div class="filterlist maplist" data-label="Filter: " data-default="All"></div>
+        </div><div class="gmap" id="gmap"></div>
+    </article>
+</section>
+
+<section id="end">
+    <div class="content">
+        <div class="copyright">
+            <img data-src="{{ img(field_render('loading_media').path) }}" class="lazyload" alt="{{ salon.name }}">
+            <p>Copyright {{ salon.name }} - Tous droit réservés</p>
+        </div>
+    </div>
+    <a id="back2top" class="backtotop icon-salon_arrowup">Retour en haut</a>
+</section>
+
+<!-- all scripts -->
+<script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('libs/modernizr/modernizr.min.js') }}"></script>
+<script src="{{ asset('libs/lazysizes/lazysizes.min.js') }}"></script>
+<script src="{{ theme_asset('plugins.min.js') }}"></script>
+<script src="{{ theme_asset('main.min.js') }}"></script>
+{% for library in data.libraries %}
+    {% if library.category == 'js' %}
+        {% if library.type == 'file' %}
+            <script type="text/javascript" src="{{ asset(library.path) }}"></script>
+        {% else %}
+            <script type="text/javascript" src="{{ library.path }}"></script>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% if address.latitude is not empty %}
+<script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyArNGSSl-KPS23l24EilPNQhfmEw_V8BtI&libraries=places&region=FR"></script>
+<script>
+    $(document).ready(function () {
+        var latlng = new google.maps.LatLng({{ address.latitude }}, {{ address.longitude }});
+        var map = new google.maps.Map(document.getElementById('gmap'), {
+            zoom: 13,
+            center: latlng
+        });
+        new google.maps.Marker({
+            position: latlng,
+            map: map
+        });
+    })
+</script>
+{% endif %}
+{% block js %}{% endblock %}
+
+{# debugbar #}
+{{ debug_bar_footer()|raw }}
+{# End debugbar#}
+</body>
+</html>

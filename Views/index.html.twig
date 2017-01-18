@@ -1,0 +1,144 @@
+{% extends data.page.layout.type == 'file' ? (data.website.layout.type == 'file' ? (data.website.layout.content~'.html.twig') : (template_from_string(data.website.layout.content))) : template_from_string(data.website_layout) %}
+
+{% block page %}
+
+    <section id="about" data-panel="about" class="col-3 slider hl-text-slider">
+        <article>
+            <div class="hlblock">
+                <h1>{{ field_render('welcome_title','page@'~data.page.id) }}</h1>
+            </div>
+            <div class="content">
+                {{ field_render('welcome_text','page@'~data.page.id) }}
+            </div>
+
+            {% set carrousel = field_render('carrousel','page@'~data.page.id) %}
+            <div class="sliderwrapper slickexpandable">
+                <div class="slick">
+                    {% for slide in carrousel %}
+                        <div class="slide imgLiquidCenterLeft"><img src="{{ img(slide.image.path) }}" alt="{{ slide.image.alt }}"></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section id="panorama" data-panel="panorama" class="col-2 panorama-left">
+        {% set panorama = field_render('second_bloc_image','page@'~data.page.id) %}
+        <article>
+            <div class="hlblock">
+                <h1>{{ field_render('second_bloc_title','page@'~data.page.id) }}</h1>
+            </div><div class="content panorama" data-panorama="{{ img(panorama.path) }}" style="background-image: url({{ img(panorama.path) }}">
+                <a class="pan_controls icon-salon_play"></a>
+            </div>
+        </article>
+    </section>
+
+    <section id="mastersvision" data-panel="mastersvision" class="col-3 pic-hl-text">
+        {% set actu = field_render('third_post_bloc','page@'~data.page.id) %}
+        <article>
+            <div class="pic">
+                <img src="{{ img(actu.thumbnail.path) }}" alt="{{ actu.thumbnail.alt }}">
+            </div><div class="hlblock">
+                <h1>{{ actu.title }}</h1>
+            </div><div class="content">
+                {{ actu.content|raw }}
+            </div>
+        </article>
+    </section>
+
+    <section id="team" data-panel="team" class="tophead mixitup supermix">
+        {% set team = field_render('team','page@'~data.page.id) %}
+        <article>
+            <div class="hlblock controls">
+                <h1>Équipe</h1>
+            </div>
+            <div class="filteritems team">
+                {% for barber in team %}<div class="item">
+                        <div class="pic imgLiquidTopCenter">
+                            <img src="{{ img(barber.photo.path) }}" alt="{{ barber.name }}">
+                        </div>
+                        <div class="text">
+                            <h3>{{ barber.name }}</h3>
+                            <span class="sub-info">{{ barber.profession }}</span>
+                            <p>{{ barber.description }}</p>
+                        </div>
+                    </div>{% endfor %}
+            </div>
+            <div class="pagerlist dark"></div>
+        </article>
+    </section>
+
+    <section id="services" data-panel="services" class="tophead mixitup sixmix ID3h9gufkuz">
+        {% set service_categories = field_render('service_categories','page@'~data.page.id) %}
+        {% set services = field_render('services','page@'~data.page.id) %}
+        <article>
+            <div class="hlblock">
+                <h1><span>Services</span></h1>
+                <div class="togglebox">
+                    <div class="filterselect"><span class="selectlabel">Filtre: </span><span class="filtered">Tout</span>
+                    </div>
+                    <ul class="filterlist compactlist" data-label="Filter: " data-default="Tout" style="display: none;">
+                        <li><a class="filter active" data-filter="all">Tout</a></li>
+                        {% for cat in service_categories %}
+                            <li><a class="filter" data-filter=".{{ cat.name | lower | replace({' ':''}) }}">{{ cat.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="filteritems services">
+                {% for service in services %}
+                    <div class="item {{ service.category | lower | replace({' ':''}) }}">
+                        <h3>{{ service.name }}</h3>
+                        <p>{{ service.description }}</p>
+                        <span class="price">{{ service.price }}</span>
+                    </div>
+                {% endfor %}
+            </div><!--slickcarousel-->
+            <div class="pagerlist dark"></div>
+        </article>
+    </section>
+
+    <section id="testimonials" data-panel="testimonials" class="col-2 testimonials testimonials-left">
+        {% set testimonial = field_render('testimonial','page@'~data.page.id) %}
+        <article>
+            <div class="hlblock">
+                <h1>Témoignages</h1>
+            </div><div class="content slick">
+                {% for test in testimonial %}
+                    <div class="slide">
+                        <div class="testimonial icon-salon_quote">
+                            {{ test.text | raw }}
+                            <span class="client-name">{{ test.user }}</span>
+                        </div><!--testimonial-->
+                    </div><!--slide-->
+                {% endfor %}
+            </div>
+        </article>
+    </section>
+
+    <section id="snapshots" data-panel="snapshots" class="tophead polaroid">
+        <article><div class="hlblock">
+                <h1>Notre gallerie</h1>
+            </div>
+            <div class="polaroidgallery photostack hidebullets">
+                <div>
+                    {% set galleries = field_render('gallery','page@'~data.page.id) %}
+                    {% for gallery in galleries %}
+                    <figure>
+                        <a class="photostack-img imgLiquid"><img src="{{ img(gallery.photo.path) }}" alt="{{ gallery.photo.alt }}"/></a>
+                        <figcaption>
+                            <h2 class="photostack-title">{{ gallery.title }}</h2>
+                            <div class="photostack-back">
+                                <p>{{ gallery.content }}</p>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    {% endfor %}
+                </div>
+            </div><!--polaroidgallery-->
+        </article>
+    </section>
+
+    {{ content_render('list_home_post') }}
+
+{% endblock %}

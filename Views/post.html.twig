@@ -1,0 +1,11 @@
+<section id="post" data-panel="post" class="col-3 pic-hl-text">
+    <article>
+        <div class="pic">
+            <img src="{{ asset(post.thumbnail.path) }}" alt="{{ post.thumbnail.alt }}">
+        </div><div class="hlblock">
+            <h1>{{ post.title }}</h1>
+        </div><div class="content">
+            {{ post.content|raw }}
+        </div>
+    </article>
+</section>

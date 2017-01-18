@@ -1,0 +1,10 @@
+{% for item in items %}
+    <li class="{% if item.children|length > 0 %}has-sub{% endif %}">
+        <a href="{{ full_url(item.url) }}" {#data-panel="{{ item.title | lower }}"#}>{{ item.title }}</a>
+        {% if item.children|length > 0 %}
+            <ul class="sub-menu">
+                {% include "Aster/Views/nav_loop.html.twig" with {'items': item.children} %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}

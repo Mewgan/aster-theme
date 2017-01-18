@@ -1,0 +1,8 @@
+{% extends data.website.layout.type == 'file' ? (data.website.layout.content~'.html.twig') : (template_from_string(data.website.layout.content)) %}
+
+{% block page %}
+
+    {{ page_render('', 'page') }}
+
+{% endblock %}
+
