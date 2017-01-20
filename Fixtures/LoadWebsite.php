@@ -5,14 +5,13 @@ namespace Jet\Themes\Aster\Fixtures;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Jet\Models\Media;
-use Jet\Models\Module;
-use Jet\Models\Template;
-use Jet\Models\Website;
+use Jet\Services\LoadFixture;
 
 class LoadWebsite extends AbstractFixture implements OrderedFixtureInterface
 {
-    private $data = [
+    use LoadFixture;
+
+    protected $data = [
         'Aster Website' => [
             'society' => 'Aster Society',
             'domain' => 'aster-society',
@@ -28,8 +27,11 @@ class LoadWebsite extends AbstractFixture implements OrderedFixtureInterface
             ],
             'templates' => [
                 'aster_layout',
-                'aster_home_page_layout',
                 'aster_page_layout',
+                'aster_home_page_layout',
+                'aster_post_list_partial',
+                'aster_post_list_partial',
+                'aster_single_post_partial'
             ],
             'medias' => [
                 '/src/Themes/Aster/Resources/public/img/logo.png',
@@ -79,39 +81,7 @@ class LoadWebsite extends AbstractFixture implements OrderedFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        foreach($this->data as $key => $data) {
-            $website = new Website();
-            if(isset($data['logo']))$website->setLogo($this->getReference($data['logo']));
-            $website->setTheme($this->getReference($data['theme']));
-            $website->setSociety($this->getReference($data['society']));
-            $website->setLayout($this->getReference($data['layout']));
-            $website->setRenderSystem($data['render_system']);
-            foreach ($data['modules'] as $module) {
-                $mod = Module::findOneBySlug($module);
-                $modules = is_null($website->getModules())?[]:$website->getModules();
-                if(!in_array($mod->getId(),$modules))
-                    $website->addModule($mod->getId());
-            }
-            foreach ($data['templates'] as $template) {
-                $tpl = Template::findOneById($this->getReference($template));
-                $tpl->setWebsite($website);
-                $manager->persist($tpl);
-            }
-            foreach ($data['medias'] as $media) {
-                $md = Media::findOneById($this->getReference($media));
-                $md->setWebsite($website);
-                $manager->persist($md);
-            }
-            if(isset($data['data']))$website->setData($data['data']);
-            $website->setDomain($data['domain']);
-            $this->addReference($key, $website);
-            $manager->persist($website);
-        }
-
-        $theme = $this->getReference($this->data['Aster Website']['theme']);
-        $theme->setWebsite($this->getReference('Aster Website'));
-        $manager->persist($theme);
-
+        $this->loadWebsite($manager, 'Aster Website');
     }
 
     /**
@@ -121,6 +91,6 @@ class LoadWebsite extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 110;
+        return 100006;
     }
 }

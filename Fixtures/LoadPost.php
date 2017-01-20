@@ -2,18 +2,20 @@
 
 namespace Jet\Themes\Aster\Fixtures;
 
-use Doctrine\Common\Collections\ArrayCollection;
+
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Jet\Models\Website;
-use Jet\Modules\Post\Models\Post;
+use Jet\Modules\Post\Services\LoadPostFixture;
 
 class LoadPost extends AbstractFixture implements OrderedFixtureInterface
 {
-    private $data = [
+
+    use LoadPostFixture;
+
+    protected $data = [
         /* Aster website posts */
-        [
+        'aster-the-master-vision' => [
             'title' => 'The master vision',
             'slug' => 'the-master-vision',
             'short_description' => 'Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -28,7 +30,7 @@ class LoadPost extends AbstractFixture implements OrderedFixtureInterface
             ],
             'website' => 'aster-society'
         ],
-        [
+        'aster-mariage' => [
             'title' => 'Mariage',
             'slug' => 'mariage',
             'short_description' => 'Parce que le mariage est un moment unique, Aster Society propose de nombreux services pour satisfaire toutes les envies des mariés.',
@@ -41,7 +43,7 @@ En plus des coiffures traditionnelles, nos spécialistes vous conseillent (à l\
             ],
             'website' => 'aster-society'
         ],
-        [
+        'aster-intervention-en-entreprise' => [
             'title' => 'Intervention en entreprise',
             'slug' => 'intervention-en-entreprise',
             'short_description' => 'De plus en plus d\'entreprises organisent des journées ou demi-journées sur le thème de la coiffure pour leurs employés. Conviviaux et fédérateurs, ces moments sont des plus agréables. D\'autant que les employés sont coiffés sans frais !',
@@ -54,7 +56,7 @@ Aster Society propose d\'intervenir dans ce cadre. Contactez-nous pour plus d\'i
             ],
             'website' => 'aster-society'
         ],
-        [
+        'aster-couleur' => [
             'title' => 'Couleur',
             'slug' => 'couleur',
             'short_description' => 'Esthétique Coiffure Manuela bénéficie d\'une large gamme de produits qui permet aux coiffeurs de proposer de nombreuses teintes sous trois formes principales : les colorations intégrales, les mèches et les balayages.',
@@ -67,7 +69,7 @@ Nos coiffeurs sont à votre écoute pour comprendre vos envies et trouver la cou
             ],
             'website' => 'aster-society'
         ],
-        [
+        'aster-offrir-des-cadeaux' => [
             'title' => 'Offrir des cadeaux',
             'slug' => 'offrir-des-cadeaux',
             'short_description' => 'Aster Society vous propose un large panel de cadeaux à offrir aux personnes de votre choix',
@@ -84,7 +86,7 @@ Nos coiffeurs sont à votre écoute pour comprendre vos envies et trouver la cou
             ],
             'website' => 'aster-society'
         ],
-        [
+        'aster-prestations-coiffure' => [
             'title' => 'Prestations coiffure',
             'slug' => 'prestations-coiffure',
             'short_description' => 'Aster Society propose les services "classiques" de la coiffure',
@@ -99,25 +101,7 @@ Nos coiffeurs sont à votre écoute pour comprendre vos envies et trouver la cou
 
     public function load(ObjectManager $manager)
     {
-        foreach ($this->data as $key => $data) {
-            $website = Website::findOneByDomain($data['website']);
-            $post = (Post::where('slug', $data['slug'])->where('website', $website)->count() == 0)
-                ? new Post()
-                : Post::findOneBy(['slug' => $data['slug'], 'website' => $website]);
-            $post->setTitle($data['title']);
-            $post->setSlug($data['slug']);
-            $post->setDescription($data['short_description']);
-            $post->setContent($data['content']);
-            $post->setThumbnail($this->getReference($data['thumbnail']));
-            $categories = new ArrayCollection();
-            foreach ($data['categories'] as $category)
-                $categories[] = $this->getReference($category);
-            $post->setPostCategories($categories);
-            $post->setWebsite($website);
-            $manager->persist($post);
-        }
-
-        $manager->flush();
+        $this->loadPost($manager);
     }
 
     /**
@@ -127,6 +111,6 @@ Nos coiffeurs sont à votre écoute pour comprendre vos envies et trouver la cou
      */
     public function getOrder()
     {
-        return 119;
+        return 100008;
     }
 }

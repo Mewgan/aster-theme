@@ -5,14 +5,17 @@ namespace Jet\Themes\Aster\Fixtures;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Jet\Models\AdminCustomField;
+use Jet\Services\LoadFixture;
 
 class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInterface
 {
 
-    private $data = [
+    use LoadFixture;
+
+    protected $data = [
         /* Aster fields */
         'aster_opening_hours' => [
+            'scope' => 'global',
             'title' => 'Horaires d\'ouverture',
             'name' => 'opening_hours',
             'type' => 'wysiwyg',
@@ -31,6 +34,7 @@ class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInte
             </p>']
         ],
         'aster_social' => [
+            'scope' => 'global',
             'title' => 'Réseaux sociaux',
             'name' => 'social_networks',
             'type' => 'repeater',
@@ -44,6 +48,7 @@ class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInte
             ]
         ],
         'aster_social_name' => [
+            'scope' => 'global',
             'title' => 'Nom',
             'name' => 'name',
             'type' => 'string',
@@ -59,6 +64,7 @@ class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInte
             ]
         ],
         'aster_social_link' => [
+            'scope' => 'global',
             'title' => 'Lien',
             'name' => 'link',
             'type' => 'string',
@@ -74,6 +80,7 @@ class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInte
             ]
         ],
         'aster_loading_media' => [
+            'scope' => 'global',
             'title' => 'Image du loader',
             'name' => 'loading_media',
             'type' => 'media',
@@ -83,9 +90,10 @@ class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInte
             'data' => [
                 'media_render_type' => 'object'
             ],
-            'content' => ['value' => ['id' => '8', 'path' => '/src/Themes/Aster/Resources/public/img/logo-intro.png', 'alt' => 'Loading logo aster', 'title' => 'Loading logo theme aster']]
+            'content' => ['value' => '/src/Themes/Aster/Resources/public/img/logo-intro.png']
         ],
         'aster_header_subtitle' => [
+            'scope' => 'global',
             'title' => 'Sous titre',
             'name' => 'header_subtitle',
             'type' => 'string',
@@ -96,6 +104,7 @@ class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInte
             'content' => ['value' => 'Services of the utmost quality']
         ],
         'aster_header_background' => [
+            'scope' => 'global',
             'title' => 'Image du slider',
             'name' => 'header_background',
             'type' => 'media',
@@ -105,10 +114,11 @@ class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInte
             'data' => [
                 'media_render_type' => 'object'
             ],
-            'content' => ['value' => ['id' => '9', 'path' => '/src/Themes/Aster/Resources/public/img/hero.jpg', 'alt' => 'Header background image', 'title' => 'Theme aster header image']]
+            'content' => ['value' => '/src/Themes/Aster/Resources/public/img/hero.jpg']
         ],
         /* Aster home page fields */
         'aster_home_top_left_bloc' => [
+            'scope' => 'specified',
             'title' => 'Titre de bienvenue',
             'name' => 'welcome_title',
             'type' => 'string',
@@ -116,9 +126,10 @@ class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInte
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => 'BIENVENUE SUR ASTER SOCIETY']
+            'content' => ['page@society-aster-home' => 'BIENVENUE SUR ASTER SOCIETY']
         ],
         'aster_home_top_center_bloc' => [
+            'scope' => 'specified',
             'title' => 'Texte de bienvenue',
             'name' => 'welcome_text',
             'type' => 'wysiwyg',
@@ -127,7 +138,7 @@ class LoadAdminCustomField extends AbstractFixture implements OrderedFixtureInte
             'cf' => 'Aster Home Page',
             'data' => [],
             'content' => [
-                'page@1' => 'Established in 1995, the salon always was a place, where people with sense for current trends found a stylist who understood to turn their vision into reality, and who was able to create a look that ephasized their individuality. 
+                'page@society-aster-home' => 'Established in 1995, the salon always was a place, where people with sense for current trends found a stylist who understood to turn their vision into reality, and who was able to create a look that ephasized their individuality. 
 
 Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
@@ -135,6 +146,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             ]
         ],
         'aster_home_carrousel' => [
+            'scope' => 'specified',
             'title' => 'Carrousel',
             'name' => 'carrousel',
             'type' => 'repeater',
@@ -147,10 +159,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             ],
             'content' => [
                 'type' => 'repeater',
-                'rows@page@1' => [0,1,2]
+                'rows@page@society-aster-home' => [0,1,2]
             ]
         ],
         'aster_home_carrousel_img' => [
+            'scope' => 'specified',
             'title' => 'Image',
             'name' => 'image',
             'type' => 'media',
@@ -161,14 +174,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
                 'media_render_type' => 'object'
             ],
             'content' => [
-                'page@1' => [
-                    ['id' => '10', 'path' => '/src/Themes/Aster/Resources/public/img/slide-1.jpg', 'alt' => 'Theme aster home page slide 1', 'title' => 'Theme aster home page slide 1'],
-                    ['id' => '11', 'path' => '/src/Themes/Aster/Resources/public/img/slide-2.jpg', 'alt' => 'Theme aster home page slide 2', 'title' => 'Theme aster home page slide 2'],
-                    ['id' => '12', 'path' => '/src/Themes/Aster/Resources/public/img/slide-3.jpg', 'alt' => 'Theme aster home page slide 3', 'title' => 'Theme aster home page slide 3'],
+                'page@society-aster-home' => [
+                    '/src/Themes/Aster/Resources/public/img/slide-1.jpg',
+                    '/src/Themes/Aster/Resources/public/img/slide-2.jpg',
+                    '/src/Themes/Aster/Resources/public/img/slide-3.jpg',
                 ]
             ]
         ],
         'aster_home_second_left_bloc' => [
+            'scope' => 'specified',
             'title' => 'Titre du bloc 2',
             'name' => 'second_bloc_title',
             'type' => 'string',
@@ -176,9 +190,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => 'NOTRE SALON']
+            'content' => ['page@society-aster-home' => 'NOTRE SALON']
         ],
         'aster_home_second_right_bloc' => [
+            'scope' => 'specified',
             'title' => 'Image du bloc 2',
             'name' => 'second_bloc_image',
             'type' => 'media',
@@ -188,21 +203,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'data' => [
                 'media_render_type' => 'object'
             ],
-            'content' => ['page@1' => ['id' => '13', 'path' => '/src/Themes/Aster/Resources/public/img/panorama.jpg', 'alt' => 'Theme aster home page panorama image', 'title' => 'Theme aster home page panorama image'],]
+            'content' => ['page@society-aster-home' => '/src/Themes/Aster/Resources/public/img/panorama.jpg']
         ],
         'aster_home_third_bloc' => [
+            'scope' => 'specified',
             'title' => 'Article',
             'name' => 'third_post_bloc',
             'type' => 'post',
+            'website' => 'Aster Website',
             'position' => 5,
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [
-                'categories' => [2]
+                'categories' => ['actualite']
             ],
-            'content' => ['page@1' => '1']
+            'content' => ['page@society-aster-home' => 'aster-the-master-vision']
         ],
         'aster_home_team' => [
+            'scope' => 'specified',
             'title' => 'Equipe',
             'name' => 'team',
             'type' => 'repeater',
@@ -212,10 +230,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'data' => [],
             'content' => [
                 'type' => 'repeater',
-                'rows@page@1' => [0,1,2,3,4,5,6,7,8]
+                'rows@page@society-aster-home' => [0,1,2,3,4,5,6,7,8]
             ]
         ],
         'aster_home_team_barber_name' => [
+            'scope' => 'specified',
             'title' => 'Nom',
             'name' => 'name',
             'type' => 'string',
@@ -223,13 +242,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_team',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' =>
+            'content' => ['page@society-aster-home' =>
                 [
                     'Gina','Adam','Josh','Valerie','Lucy','Mike','Robin','Jessica','Amy'
                 ]
             ]
         ],
         'aster_home_team_barber_photo' => [
+            'scope' => 'specified',
             'title' => 'Photo',
             'name' => 'photo',
             'type' => 'media',
@@ -237,20 +257,21 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_team',
             'cf' => 'Aster Home Page',
             'data' => ['media_render_type' => 'object'],
-            'content' => ['page@1' => [
-                        ['id' => '14', 'path' => '/src/Themes/Aster/Resources/public/img/team-gina.jpg',  'alt' => 'Gina', 'title' => 'Theme aster home page team Gina image'],
-                        ['id' => '15', 'path' => '/src/Themes/Aster/Resources/public/img/team-adam.jpg',  'alt' => 'Adam', 'title' => 'Theme aster home page team Adam image'],
-                        ['id' => '16', 'path' => '/src/Themes/Aster/Resources/public/img/team-josh.jpg', 'alt' => 'Josh', 'title' => 'Theme aster home page team Josh image'],
-                        ['id' => '17', 'path' => '/src/Themes/Aster/Resources/public/img/team-valerie.jpg', 'alt' => 'Valerie', 'title' => 'Theme aster home page team Valerie image'],
-                        ['id' => '18', 'path' => '/src/Themes/Aster/Resources/public/img/team-lucy.jpg', 'alt' => 'Lucy', 'title' => 'Theme aster home page team Lucy image'],
-                        ['id' => '19', 'path' => '/src/Themes/Aster/Resources/public/img/team-mike.jpg', 'alt' => 'Mike', 'title' => 'Theme aster home page team Mike image'],
-                        ['id' => '20', 'path' => '/src/Themes/Aster/Resources/public/img/team-robin.jpg', 'alt' => 'Robin', 'title' => 'Theme aster home page team Robin image'],
-                        ['id' => '21', 'path' => '/src/Themes/Aster/Resources/public/img/team-jessica.jpg', 'alt' => 'Jessica', 'title' => 'Theme aster home page team Jessica image'],
-                        ['id' => '22', 'path' => '/src/Themes/Aster/Resources/public/img/team-amy.jpg', 'alt' => 'Amy', 'title' => 'Theme aster home page team Amy image'],
+            'content' => ['page@society-aster-home' => [
+                    '/src/Themes/Aster/Resources/public/img/team-gina.jpg',
+                    '/src/Themes/Aster/Resources/public/img/team-adam.jpg',
+                    '/src/Themes/Aster/Resources/public/img/team-josh.jpg',
+                    '/src/Themes/Aster/Resources/public/img/team-valerie.jpg',
+                    '/src/Themes/Aster/Resources/public/img/team-lucy.jpg',
+                    '/src/Themes/Aster/Resources/public/img/team-mike.jpg',
+                    '/src/Themes/Aster/Resources/public/img/team-robin.jpg',
+                    '/src/Themes/Aster/Resources/public/img/team-jessica.jpg',
+                    '/src/Themes/Aster/Resources/public/img/team-amy.jpg',
                 ]
             ]
         ],
         'aster_home_team_barber_profession' => [
+            'scope' => 'specified',
             'title' => 'Profession',
             'name' => 'profession',
             'type' => 'string',
@@ -258,11 +279,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_team',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => [
+            'content' => ['page@society-aster-home' => [
                 'Evening Styles','Men\'s Styles','Fashion Cuts','Color Artist','Youngsters Styles','Creative Colors','Evening Styles','Extensions','Make Overs']
             ]
         ],
         'aster_home_team_barber_description' => [
+            'scope' => 'specified',
             'title' => 'Description',
             'name' => 'description',
             'type' => 'textarea',
@@ -270,7 +292,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_team',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' =>
+            'content' => ['page@society-aster-home' =>
                 [
                     'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
                     'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
@@ -285,6 +307,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             ]
         ],
         'aster_home_service_category' => [
+            'scope' => 'specified',
             'title' => 'Catégories de service',
             'name' => 'service_categories',
             'type' => 'repeater',
@@ -294,10 +317,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'data' => [],
             'content' => [
                 'type' => 'repeater',
-                'rows@page@1' => [0,1]
+                'rows@page@society-aster-home' => [0,1]
             ]
         ],
         'aster_home_service_category_name' => [
+            'scope' => 'specified',
             'title' => 'Nom',
             'name' => 'name',
             'type' => 'string',
@@ -305,9 +329,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_service_category',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => ['Basics','Color']]
+            'content' => ['page@society-aster-home' => ['Basics','Color']]
         ],
         'aster_home_service' => [
+            'scope' => 'specified',
             'title' => 'Services',
             'name' => 'services',
             'type' => 'repeater',
@@ -317,10 +342,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'data' => [],
             'content' => [
                 'type' => 'repeater',
-                'rows@page@1' => [0,1,2,3,4,5,6,7]
+                'rows@page@society-aster-home' => [0,1,2,3,4,5,6,7]
             ]
         ],
         'aster_home_service_name' => [
+            'scope' => 'specified',
             'title' => 'Nom',
             'name' => 'name',
             'type' => 'string',
@@ -328,9 +354,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_service',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => ['Cut & Style','Quick cut','Coloration','Wash & Go','Evening Style','Highlights','Hightlights & Lowlights','Balayage']]
+            'content' => ['page@society-aster-home' => ['Cut & Style','Quick cut','Coloration','Wash & Go','Evening Style','Highlights','Hightlights & Lowlights','Balayage']]
         ],
         'aster_home_service_cat' => [
+            'scope' => 'specified',
             'title' => 'Catégorie',
             'name' => 'category',
             'type' => 'string',
@@ -338,9 +365,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_service',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => ['Basics','Basics','Color','Basics','Basics','Color','Color','Color']]
+            'content' => ['page@society-aster-home' => ['Basics','Basics','Color','Basics','Basics','Color','Color','Color']]
         ],
         'aster_home_service_description' => [
+            'scope' => 'specified',
             'title' => 'Description',
             'name' => 'description',
             'type' => 'textarea',
@@ -348,9 +376,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_service',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => ['Basic cut and fashion style','Basic cut and fashion style','Full head coloration','Wash and blow dry','A festive hair do for your event','Basic cut and fashion style','A complete color transformation','Freestyle color application by one of our top stylists']]
+            'content' => ['page@society-aster-home' => ['Basic cut and fashion style','Basic cut and fashion style','Full head coloration','Wash and blow dry','A festive hair do for your event','Basic cut and fashion style','A complete color transformation','Freestyle color application by one of our top stylists']]
         ],
         'aster_home_service_price' => [
+            'scope' => 'specified',
             'title' => 'Prix',
             'name' => 'price',
             'type' => 'string',
@@ -358,9 +387,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_service',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => ['$ 139','$ 89','$ 139','$ 149','$ 159','$ 39','$ 239','$ 339']]
+            'content' => ['page@society-aster-home' => ['$ 139','$ 89','$ 139','$ 149','$ 159','$ 39','$ 239','$ 339']]
         ],
         'aster_home_testimonial' => [
+            'scope' => 'specified',
             'title' => 'Témoignages',
             'name' => 'testimonial',
             'type' => 'repeater',
@@ -370,10 +400,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'data' => [],
             'content' => [
                 'type' => 'repeater',
-                'rows@page@1' => [0,1,2]
+                'rows@page@society-aster-home' => [0,1,2]
             ]
         ],
         'aster_home_testimonial_text' => [
+            'scope' => 'specified',
             'title' => 'Texte',
             'name' => 'text',
             'type' => 'wysiwyg',
@@ -381,7 +412,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_testimonial',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' =>
+            'content' => ['page@society-aster-home' =>
                 [
                     '<p>I was blown away - literally - by the style Gina did for my
                             red carpet event. <br/>She managed to make me look fabulous but still catch my personal style.  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
@@ -395,6 +426,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             ]
         ],
         'aster_home_testimonial_user' => [
+            'scope' => 'specified',
             'title' => 'Client',
             'name' => 'user',
             'type' => 'string',
@@ -402,9 +434,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_testimonial',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => ['Jennifer Lawrence','Heidi Klum','Taylor Swift']]
+            'content' => ['page@society-aster-home' => ['Jennifer Lawrence','Heidi Klum','Taylor Swift']]
         ],
         'aster_home_gallery' => [
+            'scope' => 'specified',
             'title' => 'Gallerie',
             'name' => 'gallery',
             'type' => 'repeater',
@@ -414,10 +447,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'data' => [],
             'content' => [
                 'type' => 'repeater',
-                'rows@page@1' => [0,1,2,3,4,5]
+                'rows@page@society-aster-home' => [0,1,2,3,4,5]
             ]
         ],
         'aster_home_gallery_image' => [
+            'scope' => 'specified',
             'title' => 'Photo',
             'name' => 'photo',
             'type' => 'media',
@@ -425,17 +459,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_gallery',
             'cf' => 'Aster Home Page',
             'data' => ['media_render_type' => 'object'],
-            'content' => ['page@1' => [
-                ['id' => '23', 'path' => '/src/Themes/Aster/Resources/public/img/client-sabrina.jpg', 'alt' => 'Sabrina', 'title' => 'Theme aster home page gallery Sabrina image'],
-                ['id' => '24', 'path' => '/src/Themes/Aster/Resources/public/img/client-kameko.jpg', 'alt' => 'Kameko', 'title' => 'Theme aster home page gallery Kameko image'],
-                ['id' => '25', 'path' => '/src/Themes/Aster/Resources/public/img/client-marin.jpg', 'alt' => 'Marin', 'title' => 'Theme aster home page gallery Marin image'],
-                ['id' => '26', 'path' => '/src/Themes/Aster/Resources/public/img/client-josh.jpg', 'alt' => 'Josh', 'title' => 'Theme aster home page gallery Josh image'],
-                ['id' => '27', 'path' => '/src/Themes/Aster/Resources/public/img/client-steve.jpg', 'alt' => 'Steve', 'title' => 'Theme aster home page gallery Steve image'],
-                ['id' => '28', 'path' => '/src/Themes/Aster/Resources/public/img/client-boy.jpg', 'alt' => 'Boy', 'title' => 'Theme aster home page gallery Boy image'],
+            'content' => ['page@society-aster-home' => [
+                '/src/Themes/Aster/Resources/public/img/client-sabrina.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-kameko.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-marin.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-josh.jpg',
+               '/src/Themes/Aster/Resources/public/img/client-steve.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-boy.jpg',
             ]
             ]
         ],
         'aster_home_gallery_title' => [
+            'scope' => 'specified',
             'title' => 'Titre',
             'name' => 'title',
             'type' => 'string',
@@ -443,7 +478,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_gallery',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => [
+            'content' => ['page@society-aster-home' => [
                 'Sabrina with a twist',
                 'Kameko on her big day',
                 'The redhead',
@@ -453,6 +488,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             ]]
         ],
         'aster_home_gallery_content' => [
+            'scope' => 'specified',
             'title' => 'Contenu',
             'name' => 'content',
             'type' => 'textarea',
@@ -460,7 +496,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'parent' => 'aster_home_gallery',
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@1' => [
+            'content' => ['page@society-aster-home' => [
                 'Our top stylist Josh did a grat job with this \'twisted\' hair style for Sabrina.',
                 'Kameko trusted us with the hair do for the big day. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.',
                 'There is only one person Marin entrusts her red mane...',
@@ -473,20 +509,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
 
     public function load(ObjectManager $manager)
     {
-        foreach($this->data as $key => $data) {
-            $acf = new AdminCustomField();
-            $acf->setTitle($data['title']);
-            $acf->setName($data['name']);
-            $acf->setType($data['type']);
-            $acf->setPosition($data['position']);
-            $acf->setData($data['data']);
-            $acf->setContent($data['content']);
-            if(!is_null($data['parent']))$acf->setParent($this->getReference($data['parent']));
-            $acf->setCustomField($this->getReference($data['cf']));
-            $this->addReference($key, $acf);
-            $manager->persist($acf);
-        }
-        $manager->flush();
+        $this->loadAdminCustomField($manager);
     }
 
     /**
@@ -496,6 +519,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
      */
     public function getOrder()
     {
-        return 118;
+        return 100016;
     }
 }

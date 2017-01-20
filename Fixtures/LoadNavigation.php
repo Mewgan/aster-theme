@@ -12,7 +12,7 @@ class LoadNavigation extends AbstractFixture implements OrderedFixtureInterface
 {
 
     private $data = [
-        'menu' => [
+        'aster-menu' => [
             'name' => 'Menu',
             'website' => 'aster-society'
         ]
@@ -28,7 +28,6 @@ class LoadNavigation extends AbstractFixture implements OrderedFixtureInterface
             $navigation->setName($data['name']);
             $navigation->setWebsite($website);
             $this->setReference($key, $navigation);
-            $this->setReference('website-' . $key, $website);
             $manager->persist($navigation);
         }
 

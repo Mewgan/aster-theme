@@ -5,12 +5,14 @@ namespace Jet\Themes\Aster\Fixtures;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Jet\Models\Profession;
-use Jet\Models\Theme;
+use Jet\Services\LoadFixture;
 
 class LoadTheme extends AbstractFixture implements OrderedFixtureInterface
 {
-    private $data = [
+
+    use LoadFixture;
+
+    protected $data = [
         [
             'name' => 'Aster',
             'profession' => 'barber',
@@ -21,17 +23,7 @@ class LoadTheme extends AbstractFixture implements OrderedFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        foreach($this->data as $data){
-            $profession = Profession::findOneBySlug($data['profession']);
-            $theme = new Theme();
-            $theme->setName($data['name']);
-            $theme->setProfession($profession);
-            $theme->setThumbnail($this->getReference($data['thumbnail']));
-            $theme->setState($data['state']);
-            $this->setReference($data['name'],$theme);
-            $manager->persist($theme);
-        }
-        $manager->flush();
+        $this->loadTheme($manager);
     }
 
     /**
@@ -41,6 +33,6 @@ class LoadTheme extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 109;
+        return 100004;
     }
 }

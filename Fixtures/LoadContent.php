@@ -5,23 +5,28 @@ namespace Jet\Themes\Aster\Fixtures;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Jet\Models\Content;
-use Jet\Models\Page;
-use Jet\Models\Section;
-use Jet\Models\Website;
+use Jet\Modules\Navigation\Services\LoadNavigationFixture;
+use Jet\Services\LoadFixture;
+use Jet\Modules\Post\Services\LoadPostFixture;
 
-class LoadPostContent extends AbstractFixture implements OrderedFixtureInterface
+class LoadContent extends AbstractFixture implements OrderedFixtureInterface
 {
-    private $data = [
+
+    use LoadFixture;
+    use LoadPostFixture;
+    use LoadNavigationFixture;
+
+    protected $data = [
         /* Aster website post module content */
         'aster_list_home_post_content' => [
+            'cat_mod' => 'post',
             'name' => 'Articles',
             'block' => 'list_home_post',
             'website' => 'aster-society',
             'module' => 'module_post_list',
             'template' => 'aster_post_list_partial',
             'section' => null,
-            'page' => '1',
+            'page' => 'society-aster-home',
             'data' => [
                 'class' => '',
                 'route_name' => 'module:post.type:dynamic.action:read',
@@ -40,13 +45,14 @@ class LoadPostContent extends AbstractFixture implements OrderedFixtureInterface
             ]
         ],
         'aster_single_post_content' => [
+            'cat_mod' => 'post',
             'name' => 'Article',
             'block' => 'single_post',
             'website' => 'aster-society',
             'module' => 'module_single_post',
             'template' => 'aster_single_post_partial',
             'section' => null,
-            'page' => '2',
+            'page' => 'society-aster-single-post',
             'data' => [
                 'class' => '',
                 'db' => [
@@ -61,29 +67,26 @@ class LoadPostContent extends AbstractFixture implements OrderedFixtureInterface
                 ]
             ]
         ],
+        /* Aster website navigation module content */
+        'aster_navigation_content' => [
+            'cat_mod' => 'navigation',
+            'name' => 'Menu',
+            'block' => 'navigation',
+            'website' => 'aster-society',
+            'module' => 'module_simple_menu',
+            'template' => 'aster_navigation_partial',
+            'section' => null,
+            'page' => null,
+            'data' => [
+                'class' => '',
+                'navigation' => 'aster-menu'
+            ]
+        ]
     ];
 
     public function load(ObjectManager $manager)
     {
-        foreach($this->data as $key => $data) {
-            $website = Website::findOneByDomain($data['website']);
-            $content = (Content::where('website',$website)->where('block',$data['block'])->where('name',$data['name'])->count() == 0)
-                ?  new Content()
-                : Content::findOneBy(['website' => $website, 'block' => $data['block'], 'name' => $data['name']]);
-            $content->setName($data['name']);
-            $content->setBlock($data['block']);
-            if(!is_null($data['page']))$content->setPage(Page::findOneById($data['page']));
-            $content->setWebsite($website);
-            $content->setModule($this->getReference($data['module']));
-            $content->setTemplate($this->getReference($data['template']));
-            if (!is_null($data['section']))
-                $content->setSection(Section::findOneById($data['section']));
-            $content->setData($data['data']);
-            $this->setReference($key, $content);
-            $manager->persist($content);
-        }
-
-        $manager->flush();
+        $this->loadContent($manager);
     }
 
     /**
@@ -93,6 +96,6 @@ class LoadPostContent extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 108;
+        return 100014;
     }
 }

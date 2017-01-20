@@ -5,12 +5,13 @@ namespace Jet\Themes\Aster\Fixtures;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Jet\Models\CustomField;
-use Jet\Models\CustomFieldRule;
+use Jet\Services\LoadFixture;
 
 class LoadCustomField extends AbstractFixture implements OrderedFixtureInterface
 {
-    private $data = [
+    use LoadFixture;
+
+    protected $data = [
         'Aster Specific Global' => [
             'title' => 'Données spécifique au thème',
             'rule' => 'global_rule',
@@ -36,18 +37,7 @@ class LoadCustomField extends AbstractFixture implements OrderedFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        foreach($this->data as $key => $data) {
-            $rule = CustomFieldRule::findOneByName($data['rule']);
-            $cf = new CustomField();
-            $cf->setTitle($data['title']);
-            $cf->setRule($rule);
-            $cf->setOperation($data['operation']);
-            $cf->setValue($data['value']);
-            $cf->setWebsite($this->getReference($data['website']));
-            $this->addReference($key, $cf);
-            $manager->persist($cf);
-        }
-        $manager->flush();
+        $this->loadCustomField($manager);
     }
 
     /**
@@ -57,6 +47,6 @@ class LoadCustomField extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 117;
+        return 100015;
     }
 }

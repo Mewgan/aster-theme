@@ -5,20 +5,18 @@ namespace Jet\Themes\Aster\Fixtures;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Jet\Models\Template;
 use Jet\Services\LoadFixture;
 
 class LoadTemplate extends AbstractFixture implements OrderedFixtureInterface
 {
     use LoadFixture;
 
-    private $data = [
+    protected $data = [
         /* Aster templates */
         'aster_layout' => [
             'name' => 'ThemeAsterFileLayout',
             'title' => 'Theme Aster Template',
             'content' => 'Aster/Views/layout',
-            'website' => 'Aster Website',
             'category' => 'layout',
             'scope' => 'specified',
             'type' => 'file'
@@ -27,7 +25,6 @@ class LoadTemplate extends AbstractFixture implements OrderedFixtureInterface
             'name' => 'ThemeAsterPageFileLayout',
             'title' => 'Theme Aster Page Template',
             'content' => 'Aster/Views/page',
-            'website' => 'Aster Website',
             'category' => 'layout',
             'scope' => 'specified',
             'type' => 'file'
@@ -36,7 +33,6 @@ class LoadTemplate extends AbstractFixture implements OrderedFixtureInterface
             'name' => 'ThemeAsterHomePageFileLayout',
             'title' => 'Theme Aster Home Page Template',
             'content' => 'Aster/Views/index',
-            'website' => 'Aster Website',
             'category' => 'layout',
             'scope' => 'specified',
             'type' => 'file'
@@ -45,7 +41,6 @@ class LoadTemplate extends AbstractFixture implements OrderedFixtureInterface
             'name' => 'ThemeAsterPostListFilePartial',
             'title' => 'Theme Aster Post List Template',
             'content' => 'Aster/Views/post_list',
-            'website' => 'aster-society',
             'category' => 'partial',
             'scope' => 'specified',
             'type' => 'file'
@@ -54,7 +49,6 @@ class LoadTemplate extends AbstractFixture implements OrderedFixtureInterface
             'name' => 'ThemeAsterPostFilePartial',
             'title' => 'Theme Aster Post Template',
             'content' => 'Aster/Views/post',
-            'website' => 'aster-society',
             'category' => 'partial',
             'scope' => 'specified',
             'type' => 'file'
@@ -63,7 +57,7 @@ class LoadTemplate extends AbstractFixture implements OrderedFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        $this->loadTemplate($manager, $this->data);
+        $this->loadTemplate($manager);
     }
 
     /**
@@ -73,6 +67,6 @@ class LoadTemplate extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 100004;
+        return 100005;
     }
 }
