@@ -3,11 +3,11 @@
 namespace Jet\Themes\Aster\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Jet\Services\LoadFixture;
 
-class LoadCustomField extends AbstractFixture implements OrderedFixtureInterface
+class LoadCustomField extends AbstractFixture implements DependentFixtureInterface
 {
     use LoadFixture;
 
@@ -30,7 +30,7 @@ class LoadCustomField extends AbstractFixture implements OrderedFixtureInterface
             'title' => 'Page d\'accueil',
             'rule' => 'page_rule',
             'operation' => '=',
-            'value' => 1,
+            'reference' => 'society-aster-home',
             'website' => 'Aster Website'
         ]
     ];
@@ -40,13 +40,19 @@ class LoadCustomField extends AbstractFixture implements OrderedFixtureInterface
         $this->loadCustomField($manager);
     }
 
+
     /**
-     * Get the order of this fixture
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
      *
-     * @return integer
+     * @return array
      */
-    public function getOrder()
+    function getDependencies()
     {
-        return 100015;
+        return [
+            'Jet\Themes\Aster\Fixtures\LoadWebsite',
+            'Jet\Themes\Aster\Fixtures\LoadPage',
+            'Jet\DataFixtures\LoadCustomFieldRule',
+        ];
     }
 }

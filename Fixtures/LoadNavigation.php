@@ -1,17 +1,17 @@
 <?php
 namespace Jet\Themes\Aster\Fixtures;
 
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Jet\Models\ModuleCategory;
-use Jet\Models\Website;
-use Jet\Modules\Navigation\Models\Navigation;
+use Jet\Modules\Navigation\Services\LoadNavigationFixture;
 
-class LoadNavigation extends AbstractFixture implements OrderedFixtureInterface
+class LoadNavigation extends AbstractFixture implements DependentFixtureInterface
 {
 
-    private $data = [
+    use LoadNavigationFixture;
+    
+    protected $data = [
         'aster-menu' => [
             'name' => 'Menu',
             'website' => 'aster-society'
@@ -20,27 +20,19 @@ class LoadNavigation extends AbstractFixture implements OrderedFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        foreach($this->data as $key => $data) {
-            $website =  Website::findOneByDomain($data['website']);
-            $navigation = (Navigation::where('name',$data['name'])->where('website',$website)->count() == 0)
-                ? new Navigation()
-                : Navigation::findOneBy(['name' => $data['name'], 'website' => $website]);
-            $navigation->setName($data['name']);
-            $navigation->setWebsite($website);
-            $this->setReference($key, $navigation);
-            $manager->persist($navigation);
-        }
-
-        $manager->flush();
+       $this->loadNavigation($manager);
     }
 
     /**
-     * Get the order of this fixture
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
      *
-     * @return integer
+     * @return array
      */
-    public function getOrder()
+    function getDependencies()
     {
-        return 204;
+        return [
+            'Jet\Themes\Aster\Fixtures\LoadWebsite',
+        ];
     }
 }

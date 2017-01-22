@@ -1,4 +1,4 @@
-{% extends data.page.layout.type == 'file' ? (data.website.layout.type == 'file' ? (data.website.layout.content~'.html.twig') : (template_from_string(data.website.layout.content))) : template_from_string(data.website_layout) %}
+{% extends template_from_string(data.website_layout) %}
 
 {% block page %}
 

@@ -1,93 +1,94 @@
 <?php
 namespace Jet\Themes\Aster\Fixtures;
 
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Jet\Models\ModuleCategory;
-use Jet\Models\Page;
-use Jet\Models\Route;
-use Jet\Modules\Navigation\Models\Navigation;
-use Jet\Modules\Navigation\Models\NavigationItem;
-use Jet\Modules\Post\Models\Post;
-use Jet\Modules\Post\Models\PostCategory;
+use Jet\Modules\Navigation\Services\LoadNavigationFixture;
 
 /**
  * Class LoadNavigationItem
  * @package Jet\Modules\Navigation\Fixtures
  */
-class LoadNavigationItem extends AbstractFixture implements OrderedFixtureInterface
+class LoadNavigationItem extends AbstractFixture implements DependentFixtureInterface
 {
 
+    use LoadNavigationFixture;
     /**
      * @var array
      */
-    private $data = [
+    protected $data = [
         [
             'title' => 'Accueil',
-            'navigation' => 'menu',
+            'navigation' => 'aster-menu',
             'parent' => null,
             'children' => [],
             'url' => '/',
             'route' => null,
             'type' => 'page',
-            'type_id' => 'Accueil',
+            'type_id' => 'society-aster-home',
             'position' => 0,
+            'website' => 'aster-society',
         ],
         [
             'title' => 'Équipe',
-            'navigation' => 'menu',
+            'navigation' => 'aster-menu',
             'parent' => null,
             'children' => [],
             'url' => '/#team',
             'route' => null,
             'type' => 'custom',
-            'type_id' => 'Équipe',
+            'type_id' => null,
             'position' => 1,
+            'website' => 'aster-society',
         ],
         [
             'title' => 'Services',
-            'navigation' => 'menu',
+            'navigation' => 'aster-menu',
             'parent' => null,
             'children' => [],
             'url' => '/#services',
             'route' => null,
             'type' => 'custom',
-            'type_id' => 'Service',
+            'type_id' => null,
             'position' => 2,
+            'website' => 'aster-society',
         ],
         [
             'title' => 'Galleries',
-            'navigation' => 'menu',
+            'navigation' => 'aster-menu',
             'parent' => null,
             'children' => [],
             'url' => '/#snapshots',
             'route' => null,
             'type' => 'custom',
-            'type_id' => 'Galleries',
+            'type_id' => null,
             'position' => 3,
+            'website' => 'aster-society',
         ],
         [
             'title' => 'Articles',
-            'navigation' => 'menu',
+            'navigation' => 'aster-menu',
             'parent' => null,
             'children' => [],
             'url' => '/#news',
             'route' => null,
             'type' => 'custom',
-            'type_id' => 'Articles',
+            'type_id' => null,
             'position' => 4,
+            'website' => 'aster-society',
         ],
         [
             'title' => 'Contact',
-            'navigation' => 'menu',
+            'navigation' => 'aster-menu',
             'parent' => null,
             'children' => [],
             'url' => '/#contact',
             'route' => null,
             'type' => 'custom',
-            'type_id' => 'Contact',
+            'type_id' => null,
             'position' => 5,
+            'website' => 'aster-society',
         ]
     ];
 
@@ -96,90 +97,23 @@ class LoadNavigationItem extends AbstractFixture implements OrderedFixtureInterf
      */
     public function load(ObjectManager $manager)
     {
-        $this->setItems($this->data, $manager);
-        $manager->flush();
+        $this->loadNavigationItem($manager);
     }
 
-    /**
-     * @param $items
-     * @param $manager
-     * @param null $parent
-     */
-    private function setItems($items, $manager, $parent = null){
-        foreach ($items as $key => $item) {
-            /** @var Navigation $navigation */
-            $navigation = $this->getReference($item['navigation']);
-            /** @var Website $website */
-            $website = $this->getReference('website-' . $item['navigation']);
-            $navigationItem = (NavigationItem::where('title', $item['title'])->where('navigation', $navigation)->count() == 0)
-                ? new NavigationItem()
-                : NavigationItem::findOneBy(['title' => $item['title'], 'navigation' => $navigation]);
-            $this->setRecursive($navigationItem, $navigation, $parent, $item, $website, $manager);
-        }
-    }
 
     /**
-     * @param NavigationItem $item
-     * @param Navigation $navigation
-     * @param null $parent
-     * @param $value
-     * @param $website
-     * @param ObjectManager $manager
-     */
-    private function setRecursive(NavigationItem $item, Navigation $navigation, $parent = null, $value, $website, ObjectManager $manager)
-    {
-        $item->setTitle($value['title']);
-        $item->setUrl($value['url']);
-        $item->setType($value['type']);
-
-        if (!is_null($value['type_id']))
-            $item->setTypeId($this->getTypeId($value['type'], $value['type_id'], $website));
-        $item->setPosition($value['position']);
-
-        if (!is_null($value['route'])) {
-            $route = Route::findOneBy(['name' => $value['route'], 'website' => $website]);
-            if (is_null($route)) $route = Route::findOneBy(['name' => $value['route'], 'website' => null]);
-            $item->setRoute($route);
-        }
-        $item->setParent($parent);
-        $item->setNavigation($navigation);
-
-        $this->setItems($value['children'], $manager, $item);
-
-        $manager->persist($item);
-    }
-
-    /**
-     * @param $type
-     * @param $title
-     * @param $website
-     * @return null
-     */
-    private function getTypeId($type, $title, $website){
-        switch ($type){
-            case 'page':
-                $page = Page::findOneBy(['title' => $title, 'website' => $website]);
-                return $page->getId();
-                break;
-            case 'post':
-                $post = Post::findOneBy(['title' => $title, 'website' => $website]);
-                return $post->getId();
-                break;
-            case 'post_category':
-                $cat = PostCategory::findOneBy(['name' => $title, 'website' => $website]);
-                return $cat->getId();
-                break;
-        }
-        return null;
-    }
-
-    /**
-     * Get the order of this fixture
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
      *
-     * @return integer
+     * @return array
      */
-    public function getOrder()
+    function getDependencies()
     {
-        return 205;
+        return [
+            'Jet\Themes\Aster\Fixtures\LoadWebsite',
+            'Jet\Themes\Aster\Fixtures\LoadNavigation',
+            'Jet\DataFixtures\LoadRoute',
+            'Jet\Themes\Aster\Fixtures\LoadPage'
+        ];
     }
 }

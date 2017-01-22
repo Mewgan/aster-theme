@@ -2,13 +2,12 @@
 
 namespace Jet\Themes\Aster\Fixtures;
 
-use Jet\Models\Address;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Jet\Services\LoadFixture;
 
-class LoadAddress extends AbstractFixture implements OrderedFixtureInterface
+class LoadAddress extends AbstractFixture implements DependentFixtureInterface
 {
 
     use LoadFixture;
@@ -32,12 +31,15 @@ class LoadAddress extends AbstractFixture implements OrderedFixtureInterface
     }
 
     /**
-     * Get the order of this fixture
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
      *
-     * @return integer
+     * @return array
      */
-    public function getOrder()
+    function getDependencies()
     {
-        return 100002;
+        return [
+            'Jet\Themes\Aster\Fixtures\LoadSociety'
+        ];
     }
 }

@@ -3,11 +3,11 @@
 namespace Jet\Themes\Aster\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Jet\Services\LoadFixture;
 
-class LoadWebsite extends AbstractFixture implements OrderedFixtureInterface
+class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
 {
     use LoadFixture;
 
@@ -27,11 +27,11 @@ class LoadWebsite extends AbstractFixture implements OrderedFixtureInterface
             ],
             'templates' => [
                 'aster_layout',
-                'aster_page_layout',
                 'aster_home_page_layout',
                 'aster_post_list_partial',
                 'aster_post_list_partial',
-                'aster_single_post_partial'
+                'aster_single_post_partial',
+                'aster_navigation_partial'
             ],
             'medias' => [
                 '/src/Themes/Aster/Resources/public/img/logo.png',
@@ -50,6 +50,12 @@ class LoadWebsite extends AbstractFixture implements OrderedFixtureInterface
                 '/src/Themes/Aster/Resources/public/img/team-robin.jpg',
                 '/src/Themes/Aster/Resources/public/img/team-jessica.jpg',
                 '/src/Themes/Aster/Resources/public/img/team-amy.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-sabrina.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-kameko.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-marin.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-josh.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-steve.jpg',
+                '/src/Themes/Aster/Resources/public/img/client-boy.jpg',
                 '/src/Themes/Aster/Resources/public/img/master.jpg',
             ],
             'data' => [
@@ -85,12 +91,21 @@ class LoadWebsite extends AbstractFixture implements OrderedFixtureInterface
     }
 
     /**
-     * Get the order of this fixture
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
      *
-     * @return integer
+     * @return array
      */
-    public function getOrder()
+    function getDependencies()
     {
-        return 100006;
+        return [
+            'Jet\Themes\Aster\Fixtures\LoadMedia',
+            'Jet\Themes\Aster\Fixtures\LoadTheme',
+            'Jet\Themes\Aster\Fixtures\LoadSociety',
+            'Jet\Themes\Aster\Fixtures\LoadTemplate',
+            'Jet\Modules\Post\Fixtures\LoadPostModule',
+            'Jet\Modules\Navigation\Fixtures\LoadNavigationModule',
+            'Jet\Modules\GridEditor\Fixtures\LoadGridEditorModule',
+        ];
     }
 }

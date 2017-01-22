@@ -3,13 +3,13 @@
 namespace Jet\Themes\Aster\Fixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Jet\Modules\Navigation\Services\LoadNavigationFixture;
 use Jet\Services\LoadFixture;
 use Jet\Modules\Post\Services\LoadPostFixture;
 
-class LoadContent extends AbstractFixture implements OrderedFixtureInterface
+class LoadContent extends AbstractFixture implements DependentFixtureInterface
 {
 
     use LoadFixture;
@@ -61,8 +61,7 @@ class LoadContent extends AbstractFixture implements OrderedFixtureInterface
                         'type' => 'dynamic',
                         'column' => 'slug',
                         'route' => 'slug',
-                        'value' => '',
-                        'value_id' => ''
+                        'value' => [],
                     ]
                 ]
             ]
@@ -90,12 +89,22 @@ class LoadContent extends AbstractFixture implements OrderedFixtureInterface
     }
 
     /**
-     * Get the order of this fixture
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
      *
-     * @return integer
+     * @return array
      */
-    public function getOrder()
+    function getDependencies()
     {
-        return 100014;
+        return [
+            'Jet\Themes\Aster\Fixtures\LoadWebsite',
+            'Jet\Themes\Aster\Fixtures\LoadPage',
+            'Jet\DataFixtures\LoadSection',
+            'Jet\Themes\Aster\Fixtures\LoadTemplate',
+            'Jet\Modules\Post\Fixtures\LoadPostModule',
+            'Jet\Modules\Navigation\Fixtures\LoadNavigationModule',
+            'Jet\Themes\Aster\Fixtures\LoadPost',
+            'Jet\Themes\Aster\Fixtures\LoadNavigation',
+        ];
     }
 }

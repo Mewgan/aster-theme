@@ -4,11 +4,11 @@ namespace Jet\Themes\Aster\Fixtures;
 
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Jet\Modules\Post\Services\LoadPostFixture;
 
-class LoadPost extends AbstractFixture implements OrderedFixtureInterface
+class LoadPost extends AbstractFixture implements DependentFixtureInterface
 {
 
     use LoadPostFixture;
@@ -105,12 +105,17 @@ Nos coiffeurs sont à votre écoute pour comprendre vos envies et trouver la cou
     }
 
     /**
-     * Get the order of this fixture
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
      *
-     * @return integer
+     * @return array
      */
-    public function getOrder()
+    function getDependencies()
     {
-        return 100008;
+        return [
+            'Jet\Modules\Post\Fixtures\LoadPostCategory',
+            'Jet\Themes\Aster\Fixtures\LoadWebsite',
+            'Jet\Themes\Aster\Fixtures\LoadMedia',
+        ];
     }
 }

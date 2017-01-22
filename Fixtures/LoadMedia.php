@@ -2,12 +2,11 @@
 
 namespace Jet\Themes\Aster\Fixtures;
 
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Jet\Services\LoadFixture;
 
-class LoadMedia extends AbstractFixture implements OrderedFixtureInterface
+class LoadMedia extends AbstractFixture
 {
     use LoadFixture;
 
@@ -232,15 +231,5 @@ class LoadMedia extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $this->loadMedia($manager);
-    }
-
-    /**
-     * Get the order of this fixture
-     *
-     * @return integer
-     */
-    public function getOrder()
-    {
-        return 100003;
     }
 }
