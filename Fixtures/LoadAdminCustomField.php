@@ -56,7 +56,7 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'type' => 'string',
             'position' => 0,
             'parent' => 'aster_social',
-            'cf' => 'Aster Specific Global',
+            'cf' => 'Aster Default Global',
             'data' => [],
             'content' => [
                 'value' => [
@@ -72,7 +72,7 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'type' => 'string',
             'position' => 1,
             'parent' => 'aster_social',
-            'cf' => 'Aster Specific Global',
+            'cf' => 'Aster Default Global',
             'data' => [],
             'content' => [
                 'value' => [
@@ -81,6 +81,18 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
                 ]
             ]
         ],
+        'aster_booking' => [
+            'scope' => 'global',
+            'title' => 'Lien du rendez-vous en ligne',
+            'name' => 'booking_link',
+            'type' => 'string',
+            'position' => 2,
+            'parent' => null,
+            'cf' => 'Aster Default Global',
+            'data' => [],
+            'content' => ['value' => '#']
+        ],
+        /* Theme specific */
         'aster_loading_media' => [
             'scope' => 'global',
             'title' => 'Image du loader',

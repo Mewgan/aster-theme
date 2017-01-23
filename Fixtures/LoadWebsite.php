@@ -34,6 +34,7 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
                 'aster_navigation_partial'
             ],
             'medias' => [
+                '/public/media/thumbnail/theme-aster-thumbnail.png',
                 '/src/Themes/Aster/Resources/public/img/logo.png',
                 '/src/Themes/Aster/Resources/public/img/logo-intro.png',
                 '/src/Themes/Aster/Resources/public/img/hero.jpg',
