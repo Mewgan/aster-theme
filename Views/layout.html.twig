@@ -76,8 +76,9 @@
 
 <header>
     <h1>
+        {% set logo = field_render('logo') %}
         <a href="{{ path('') }}" title="{{ salon_title }}">
-            <img data-src="{{ img(data.website.logo.path) }}" class="lazyload" alt="{{ data.website.logo.alt }}">
+            <img data-src="{{ img(logo.path) }}" class="lazyload" alt="{{ logo.alt }}">
         </a>
     </h1>
     <nav id="mainmenu" class="menu-horizontal">

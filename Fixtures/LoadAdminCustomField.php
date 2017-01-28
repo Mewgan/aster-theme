@@ -16,12 +16,38 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
 
     protected $data = [
         /* Aster fields */
+        'aster_logo' => [
+            'scope' => 'global',
+            'title' => 'Logo',
+            'name' => 'logo',
+            'type' => 'media',
+            'position' => 0,
+            'parent' => null,
+            'cf' => 'Aster Default Global',
+            'data' => [
+                'media_render_type' => 'object'
+            ],
+            'content' => ['value' => '/src/Themes/Aster/Resources/public/img/logo.png']
+        ],
+        'aster_loading_media' => [
+            'scope' => 'global',
+            'title' => 'Image du loader',
+            'name' => 'loading_media',
+            'type' => 'media',
+            'position' => 1,
+            'parent' => null,
+            'cf' => 'Aster Default Global',
+            'data' => [
+                'media_render_type' => 'object'
+            ],
+            'content' => ['value' => '/src/Themes/Aster/Resources/public/img/logo-intro.png']
+        ],
         'aster_opening_hours' => [
             'scope' => 'global',
             'title' => 'Horaires d\'ouverture',
             'name' => 'opening_hours',
             'type' => 'wysiwyg',
-            'position' => 0,
+            'position' => 2,
             'parent' => null,
             'cf' => 'Aster Default Global',
             'data' => [],
@@ -40,7 +66,7 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'title' => 'Réseaux sociaux',
             'name' => 'social_networks',
             'type' => 'repeater',
-            'position' => 1,
+            'position' => 3,
             'parent' => null,
             'cf' => 'Aster Default Global',
             'data' => [],
@@ -86,32 +112,19 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'title' => 'Lien du rendez-vous en ligne',
             'name' => 'booking_link',
             'type' => 'string',
-            'position' => 2,
+            'position' => 4,
             'parent' => null,
             'cf' => 'Aster Default Global',
             'data' => [],
             'content' => ['value' => '#']
         ],
         /* Theme specific */
-        'aster_loading_media' => [
-            'scope' => 'global',
-            'title' => 'Image du loader',
-            'name' => 'loading_media',
-            'type' => 'media',
-            'position' => 0,
-            'parent' => null,
-            'cf' => 'Aster Specific Global',
-            'data' => [
-                'media_render_type' => 'object'
-            ],
-            'content' => ['value' => '/src/Themes/Aster/Resources/public/img/logo-intro.png']
-        ],
         'aster_header_subtitle' => [
             'scope' => 'global',
             'title' => 'Sous titre',
             'name' => 'header_subtitle',
             'type' => 'string',
-            'position' => 1,
+            'position' => 0,
             'parent' => null,
             'cf' => 'Aster Specific Global',
             'data' => [],
@@ -122,7 +135,7 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'title' => 'Image du slider',
             'name' => 'header_background',
             'type' => 'media',
-            'position' => 2,
+            'position' => 1,
             'parent' => null,
             'cf' => 'Aster Specific Global',
             'data' => [

@@ -18,7 +18,6 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
             'theme' =>  'Aster',
             'layout' => 'aster_layout',
             'render_system' => 'php',
-            'logo' => '/src/Themes/Aster/Resources/public/img/logo.png',
             'modules' => [
                 'navigation',
                 'list-post',
@@ -68,7 +67,6 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
             'society' => 'Luffy Society',
             'domain' => 'luffy-society',
             'theme' =>  'Aster',
-            'logo' => '/src/Themes/Aster/Resources/public/img/logo.png',
             'layout' => 'aster_layout',
             'render_system' => 'php',
             'modules' => [
