@@ -7,7 +7,7 @@
         <title>{% block title %}{% endblock %}</title>
         <meta name="description" content="{% block description %}{% endblock %}">
         {# debugbar #}
-        {{ debug_bar_header()|raw }}
+        {#{{ debug_bar_header()|raw }}#}
         {# End debugbar #}
 
         {% for stylesheet in data.stylesheets %}
@@ -174,7 +174,7 @@
 {% block js %}{% endblock %}
 
 {# debugbar #}
-{{ debug_bar_footer()|raw }}
+{#{{ debug_bar_footer()|raw }}#}
 {# End debugbar#}
 </body>
 </html>
