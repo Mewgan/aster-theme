@@ -24,7 +24,7 @@ class LoadNavigationItem extends AbstractFixture implements DependentFixtureInte
             'parent' => null,
             'children' => [],
             'url' => '/',
-            'route' => null,
+            'route' => 'home',
             'type' => 'page',
             'type_id' => 'society-aster-home',
             'position' => 0,
