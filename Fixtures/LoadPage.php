@@ -13,15 +13,6 @@ class LoadPage extends AbstractFixture implements DependentFixtureInterface
 
     protected $data = [
         /* Aster pages */
-        'society-aster-home' =>  [
-            'title' => 'Accueil',
-            'route' => 'home',
-            'website' => 'Aster Website',
-            'layout' => 'aster_home_page_layout',
-            'stylesheets' => [],
-            'libraries' => [],
-            'type' => 'static',
-        ],
         'society-aster-single-post' =>  [
             'title' => 'Article',
             'route' => 'module:post.type:dynamic.action:read',
@@ -30,6 +21,15 @@ class LoadPage extends AbstractFixture implements DependentFixtureInterface
             'stylesheets' => [],
             'libraries' => [],
             'type' => 'dynamic'
+        ],
+        'society-aster-home' =>  [
+            'title' => 'Accueil',
+            'route' => 'home',
+            'website' => 'Aster Website',
+            'layout' => 'aster_home_page_layout',
+            'stylesheets' => [],
+            'libraries' => [],
+            'type' => 'static',
         ]
     ];
 
@@ -37,7 +37,7 @@ class LoadPage extends AbstractFixture implements DependentFixtureInterface
     {
         $this->loadPage($manager);
     }
-    
+
     /**
      * This method must return an array of fixtures classes
      * on which the implementing class depends on
