@@ -14,10 +14,14 @@ class LoadSociety extends AbstractFixture implements DependentFixtureInterface
     protected $data = [
         [
             'name' => 'Aster Society',
+            'email' => 'contact@aster.com',
+            'phone' => '0123456789',
             'account' => 'sumugan.sinnarasa@desico.fr'
         ],
         [
             'name' => 'Luffy Society',
+            'email' => 'contact@luffy.com',
+            'phone' => '0123456789',
             'account' => 'luffy@onepiece.com'
         ]
     ];

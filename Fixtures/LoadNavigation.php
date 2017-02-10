@@ -13,7 +13,7 @@ class LoadNavigation extends AbstractFixture implements DependentFixtureInterfac
     
     protected $data = [
         'aster-menu' => [
-            'name' => 'Menu',
+            'name' => 'Menu du haut',
             'website' => 'aster-society'
         ]
     ];
