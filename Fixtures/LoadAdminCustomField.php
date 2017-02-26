@@ -16,6 +16,39 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
 
     protected $data = [
         /* Aster fields */
+        'aster_seo_title' => [
+            'scope' => 'specified',
+            'title' => 'Meta titre',
+            'name' => 'meta_title',
+            'type' => 'string',
+            'position' => 0,
+            'parent' => null,
+            'cf' => 'Aster Seo',
+            'data' => [],
+            'content' => []
+        ],
+        'aster_seo_description' => [
+            'scope' => 'specified',
+            'title' => 'Meta description',
+            'name' => 'meta_description',
+            'type' => 'textarea',
+            'position' => 1,
+            'parent' => null,
+            'cf' => 'Aster Seo',
+            'data' => [],
+            'content' => []
+        ],
+        'aster_seo_keywords' => [
+            'scope' => 'specified',
+            'title' => 'Meta mots clef',
+            'name' => 'meta_keywords',
+            'type' => 'string',
+            'position' => 2,
+            'parent' => null,
+            'cf' => 'Aster Seo',
+            'data' => [],
+            'content' => []
+        ],
         'aster_logo' => [
             'scope' => 'global',
             'title' => 'Logo',

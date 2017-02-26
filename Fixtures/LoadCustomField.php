@@ -12,6 +12,13 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
     use LoadFixture;
 
     protected $data = [
+        'Aster Seo' => [
+            'title' => 'SEO',
+            'rule' => 'everywhere_rule',
+            'operation' => '=',
+            'value' => null,
+            'website' => 'Aster Website',
+        ],
         'Aster Specific Global' => [
             'title' => 'Données spécifique au thème',
             'rule' => 'global_rule',

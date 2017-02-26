@@ -1,3 +1,6 @@
+{% block title %}{{ field_render('meta_title', 'post@'~post.id) }}{% endblock %}
+{% block description %}{{ field_render('meta_description', 'post@'~post.id) }}{% endblock %}
+
 <section id="post" data-panel="post" class="col-3 pic-hl-text">
     <article>
         <div class="pic">
