@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
         <title>{% block title %}{{ field_render('meta_title','page') }}{% endblock %}</title>
         <meta name="description" content="{% block description %}{{ field_render('meta_description','page') }}{% endblock %}">
+        <meta name="keywords" content="{% block keywords %}{{ field_render('meta_keywords','page') }}{% endblock %}" />
         {# debugbar #}
         {#{{ debug_bar_header()|raw }}#}
         {# End debugbar #}

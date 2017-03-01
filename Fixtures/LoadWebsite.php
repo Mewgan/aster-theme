@@ -86,7 +86,8 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        $this->loadWebsite($manager, 'Aster Website');
+        $this->loadWebsite($manager);
+        $this->setThemeWebsite($manager, 'Aster', 'Aster Website');
     }
 
     /**

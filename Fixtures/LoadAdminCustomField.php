@@ -49,6 +49,94 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'data' => [],
             'content' => []
         ],
+        /* Global CSS and JS */
+        'aster_css' => [
+            'scope' => 'global',
+            'title' => 'Css',
+            'name' => 'css_block',
+            'type' => 'editor',
+            'position' => 0,
+            'parent' => null,
+            'cf' => 'Aster Custom Css & Js',
+            'data' => [
+                'file_type' => 'css'
+            ],
+            'content' => ['value' => '']
+        ],
+        'aster_js' => [
+            'scope' => 'global',
+            'title' => 'Javascript',
+            'name' => 'js_block',
+            'type' => 'editor',
+            'position' => 1,
+            'parent' => null,
+            'cf' => 'Aster Custom Css & Js',
+            'data' => [
+                'file_type' => 'javascript'
+            ],
+            'content' => ['value' => '']
+        ],
+        /* Global social networks */
+        'aster_social' => [
+            'scope' => 'global',
+            'title' => 'Réseaux sociaux',
+            'name' => 'social_networks',
+            'type' => 'repeater',
+            'position' => 0,
+            'parent' => null,
+            'cf' => 'Aster Social Network',
+            'data' => [],
+            'content' => [
+                'type' => 'repeater',
+                'rows' => [0,1]
+            ]
+        ],
+        'aster_social_name' => [
+            'scope' => 'global',
+            'title' => 'Nom',
+            'name' => 'name',
+            'type' => 'string',
+            'position' => 0,
+            'parent' => 'aster_social',
+            'cf' => 'Aster Social Network',
+            'data' => [],
+            'content' => [
+                'value' => [
+                    'Facebook',
+                    'Twitter',
+                ]
+            ]
+        ],
+        'aster_social_link' => [
+            'scope' => 'global',
+            'title' => 'Lien',
+            'name' => 'link',
+            'type' => 'string',
+            'position' => 1,
+            'parent' => 'aster_social',
+            'cf' => 'Aster Social Network',
+            'data' => [],
+            'content' => [
+                'value' => [
+                    '#',
+                    '#',
+                ]
+            ]
+        ],
+        /* Global seo */
+        'aster_global_seo_analytics' => [
+            'scope' => 'global',
+            'title' => 'Google | Analytics',
+            'name' => 'meta_title',
+            'type' => 'string',
+            'position' => 0,
+            'parent' => null,
+            'description' => 'Renseigner votre script analytics',
+            'cf' => 'Aster Global Seo',
+            'data' => [],
+            'content' => []
+        ],
+        /* Global skin */
         'aster_logo' => [
             'scope' => 'global',
             'title' => 'Logo',
@@ -94,58 +182,12 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
                 closed
             </p>']
         ],
-        'aster_social' => [
-            'scope' => 'global',
-            'title' => 'Réseaux sociaux',
-            'name' => 'social_networks',
-            'type' => 'repeater',
-            'position' => 3,
-            'parent' => null,
-            'cf' => 'Aster Default Global',
-            'data' => [],
-            'content' => [
-                'type' => 'repeater',
-                'rows' => [0,1]
-            ]
-        ],
-        'aster_social_name' => [
-            'scope' => 'global',
-            'title' => 'Nom',
-            'name' => 'name',
-            'type' => 'string',
-            'position' => 0,
-            'parent' => 'aster_social',
-            'cf' => 'Aster Default Global',
-            'data' => [],
-            'content' => [
-                'value' => [
-                    'Facebook',
-                    'Twitter',
-                ]
-            ]
-        ],
-        'aster_social_link' => [
-            'scope' => 'global',
-            'title' => 'Lien',
-            'name' => 'link',
-            'type' => 'string',
-            'position' => 1,
-            'parent' => 'aster_social',
-            'cf' => 'Aster Default Global',
-            'data' => [],
-            'content' => [
-                'value' => [
-                    '#',
-                    '#',
-                ]
-            ]
-        ],
         'aster_booking' => [
             'scope' => 'global',
             'title' => 'Lien du rendez-vous en ligne',
             'name' => 'booking_link',
             'type' => 'string',
-            'position' => 4,
+            'position' => 3,
             'parent' => null,
             'cf' => 'Aster Default Global',
             'data' => [],

@@ -14,7 +14,7 @@ class LoadAddress extends AbstractFixture implements DependentFixtureInterface
 
     protected $data = [
         'aster' => [
-            'address' => '17 Rue Portefoin',
+            'address' => '1 Rue Portefoin',
             'city' => 'Paris 3',
             'postal_code' => '75003',
             'society' => 'Aster Society',

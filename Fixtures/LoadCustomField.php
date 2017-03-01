@@ -12,26 +12,48 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
     use LoadFixture;
 
     protected $data = [
-        'Aster Seo' => [
-            'title' => 'SEO',
-            'rule' => 'everywhere_rule',
-            'operation' => '=',
-            'value' => null,
-            'website' => 'Aster Website',
-        ],
-        'Aster Specific Global' => [
-            'title' => 'Données spécifique au thème',
-            'rule' => 'global_rule',
-            'operation' => '=',
-            'value' => null,
-            'website' => 'Aster Website'
-        ],
         'Aster Default Global' => [
             'title' => 'Données globales',
             'rule' => 'global_rule',
             'operation' => '=',
             'value' => null,
             'website' => 'Aster Website'
+        ],
+        'Aster Specific Global' => [
+            'title' => 'Bandeau du haut (Header)',
+            'rule' => 'global_rule',
+            'operation' => '=',
+            'value' => null,
+            'website' => 'Aster Website'
+        ],
+        'Aster Global Seo' => [
+            'title' => 'SEO',
+            'rule' => 'global_rule',
+            'operation' => '=',
+            'value' => null,
+            'website' => 'Aster Website'
+        ],
+        'Aster Social Network' => [
+            'title' => 'Réseaux sociaux',
+            'rule' => 'global_rule',
+            'operation' => '=',
+            'value' => null,
+            'website' => 'Aster Website'
+        ],
+        'Aster Custom Css & Js' => [
+            'title' => 'Css & Js',
+            'rule' => 'global_rule',
+            'operation' => '=',
+            'value' => null,
+            'access_level' => 2,
+            'website' => 'Aster Website',
+        ],
+        'Aster Seo' => [
+            'title' => 'SEO',
+            'rule' => 'everywhere_rule',
+            'operation' => '=',
+            'value' => null,
+            'website' => 'Aster Website',
         ],
         'Aster Home Page' => [
             'title' => 'Page d\'accueil',
