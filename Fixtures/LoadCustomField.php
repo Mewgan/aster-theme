@@ -27,7 +27,7 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
             'website' => 'Aster Website'
         ],
         'Aster Global Seo' => [
-            'title' => 'SEO',
+            'title' => 'SEO Global',
             'rule' => 'global_rule',
             'operation' => '=',
             'value' => null,
@@ -48,6 +48,13 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
             'access_level' => 2,
             'website' => 'Aster Website',
         ],
+        'Aster Home Page' => [
+            'title' => 'Page d\'accueil',
+            'rule' => 'page_rule',
+            'operation' => '=',
+            'reference' => 'society-aster-home',
+            'website' => 'Aster Website'
+        ],
         'Aster Seo' => [
             'title' => 'SEO',
             'rule' => 'everywhere_rule',
@@ -55,13 +62,6 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
             'value' => null,
             'website' => 'Aster Website',
         ],
-        'Aster Home Page' => [
-            'title' => 'Page d\'accueil',
-            'rule' => 'page_rule',
-            'operation' => '=',
-            'reference' => 'society-aster-home',
-            'website' => 'Aster Website'
-        ]
     ];
 
     public function load(ObjectManager $manager)

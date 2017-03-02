@@ -37,13 +37,13 @@
         <link rel="stylesheet" href="{{ theme_asset('plugins.css') }}">
         <link rel="stylesheet" href="{{ theme_asset('style.css') }}">
 
+        {% block css %}{% endblock %}
         <style>
             #intro .logo {
                 background-image: url({{ img(field_render('loading_media').path) }});
             }
+            {{ field_render('css_block') }}
         </style>
-        {% block css %}{% endblock %}
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -173,7 +173,9 @@
 </script>
 {% endif %}
 {% block js %}{% endblock %}
-
+<script>
+    {{ field_render('js_block') | raw }}
+</script>
 {# debugbar #}
 {#{{ debug_bar_footer()|raw }}#}
 {# End debugbar#}
