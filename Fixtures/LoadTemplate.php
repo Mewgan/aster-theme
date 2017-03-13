@@ -52,6 +52,14 @@ class LoadTemplate extends AbstractFixture
             'scope' => 'specified',
             'type' => 'file'
         ],
+        'aster_team_partial' => [
+            'name' => 'ThemeAsterTeamFilePartial',
+            'title' => 'Theme Aster Team Partial',
+            'content' => 'Aster/Views/team',
+            'category' => 'partial',
+            'scope' => 'specified',
+            'type' => 'file'
+        ],
     ];
 
     public function load(ObjectManager $manager)

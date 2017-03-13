@@ -1,0 +1,20 @@
+<section id="team" data-panel="team" class="tophead mixitup supermix">
+    <article>
+        <div class="hlblock controls">
+            <h1>Équipe</h1>
+        </div>
+        <div class="filteritems team">
+            {% for barber in team %}<div class="item">
+                <div class="pic imgLiquidTopCenter">
+                    <img src="{{ img(barber.photo.path) }}" alt="{{ barber.photo.alt }}">
+                </div>
+                <div class="text">
+                    <h3>{{ barber.full_name }}</h3>
+                    <span class="sub-info"> {% for role in barber.roles %}{{ role.name }} | {% endfor %}</span>
+                    <p>{{ barber.description }}</p>
+                </div>
+                </div>{% endfor %}
+        </div>
+        <div class="pagerlist dark"></div>
+    </article>
+</section>

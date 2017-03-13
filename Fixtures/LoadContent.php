@@ -80,6 +80,21 @@ class LoadContent extends AbstractFixture implements DependentFixtureInterface
                 'class' => '',
                 'navigation' => 'aster-menu'
             ]
+        ],
+        /* Team */
+        'aster_team_content' => [
+            'cat_mod' => 'team',
+            'name' => 'Équipe',
+            'block' => 'team',
+            'website' => 'aster-society',
+            'module' => 'module_team',
+            'template' => 'aster_team_partial',
+            'section' => null,
+            'page' => 'society-aster-home',
+            'data' => [
+                'class' => '',
+                'roles' => []
+            ]
         ]
     ];
 
@@ -103,8 +118,10 @@ class LoadContent extends AbstractFixture implements DependentFixtureInterface
             'Jet\Themes\Aster\Fixtures\LoadTemplate',
             'Jet\Modules\Post\Fixtures\LoadPostModule',
             'Jet\Modules\Navigation\Fixtures\LoadNavigationModule',
+            'Jet\Modules\Team\Fixtures\LoadTeamModule',
             'Jet\Themes\Aster\Fixtures\LoadPost',
             'Jet\Themes\Aster\Fixtures\LoadNavigation',
+            'Jet\Themes\Aster\Fixtures\LoadTeamRole',
         ];
     }
 }

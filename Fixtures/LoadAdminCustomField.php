@@ -321,101 +321,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             ],
             'content' => ['page@society-aster-home' => 'aster-the-master-vision']
         ],
-        'aster_home_team' => [
-            'scope' => 'specified',
-            'title' => 'Equipe',
-            'name' => 'team',
-            'type' => 'repeater',
-            'position' => 6,
-            'parent' => null,
-            'cf' => 'Aster Home Page',
-            'data' => [
-                'disposition' => 'col'
-            ],
-            'content' => [
-                'type' => 'repeater',
-                'rows@page@society-aster-home' => [0,1,2,3,4,5,6,7,8]
-            ]
-        ],
-        'aster_home_team_barber_name' => [
-            'scope' => 'specified',
-            'title' => 'Nom',
-            'name' => 'name',
-            'type' => 'string',
-            'position' => 0,
-            'parent' => 'aster_home_team',
-            'cf' => 'Aster Home Page',
-            'data' => [],
-            'content' => ['page@society-aster-home' =>
-                [
-                    'Gina','Adam','Josh','Valerie','Lucy','Mike','Robin','Jessica','Amy'
-                ]
-            ]
-        ],
-        'aster_home_team_barber_photo' => [
-            'scope' => 'specified',
-            'title' => 'Photo',
-            'name' => 'photo',
-            'type' => 'media',
-            'position' => 1,
-            'parent' => 'aster_home_team',
-            'cf' => 'Aster Home Page',
-            'data' => ['media_render_type' => 'object'],
-            'content' => ['page@society-aster-home' => [
-                    '/src/Themes/Aster/Resources/public/img/team-gina.jpg',
-                    '/src/Themes/Aster/Resources/public/img/team-adam.jpg',
-                    '/src/Themes/Aster/Resources/public/img/team-josh.jpg',
-                    '/src/Themes/Aster/Resources/public/img/team-valerie.jpg',
-                    '/src/Themes/Aster/Resources/public/img/team-lucy.jpg',
-                    '/src/Themes/Aster/Resources/public/img/team-mike.jpg',
-                    '/src/Themes/Aster/Resources/public/img/team-robin.jpg',
-                    '/src/Themes/Aster/Resources/public/img/team-jessica.jpg',
-                    '/src/Themes/Aster/Resources/public/img/team-amy.jpg',
-                ]
-            ]
-        ],
-        'aster_home_team_barber_profession' => [
-            'scope' => 'specified',
-            'title' => 'Profession',
-            'name' => 'profession',
-            'type' => 'string',
-            'position' => 2,
-            'parent' => 'aster_home_team',
-            'cf' => 'Aster Home Page',
-            'data' => [],
-            'content' => ['page@society-aster-home' => [
-                'Evening Styles','Men\'s Styles','Fashion Cuts','Color Artist','Youngsters Styles','Creative Colors','Evening Styles','Extensions','Make Overs']
-            ]
-        ],
-        'aster_home_team_barber_description' => [
-            'scope' => 'specified',
-            'title' => 'Description',
-            'name' => 'description',
-            'type' => 'textarea',
-            'position' => 3,
-            'parent' => 'aster_home_team',
-            'cf' => 'Aster Home Page',
-            'data' => [],
-            'content' => ['page@society-aster-home' =>
-                [
-                    'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-                    'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-                    'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-                    'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-                    'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-                    'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-                    'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-                    'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-                    'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-                ]
-            ]
-        ],
         'aster_home_service_category' => [
             'scope' => 'specified',
             'title' => 'Catégories de service',
             'name' => 'service_categories',
             'type' => 'repeater',
-            'position' => 7,
+            'position' => 6,
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [],
@@ -440,7 +351,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'title' => 'Services',
             'name' => 'services',
             'type' => 'repeater',
-            'position' => 8,
+            'position' => 7,
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [
@@ -500,7 +411,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'title' => 'Témoignages',
             'name' => 'testimonial',
             'type' => 'repeater',
-            'position' => 9,
+            'position' => 8,
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [],
@@ -547,7 +458,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'title' => 'Gallerie',
             'name' => 'gallery',
             'type' => 'repeater',
-            'position' => 10,
+            'position' => 9,
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [],

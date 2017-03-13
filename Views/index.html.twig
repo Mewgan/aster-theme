@@ -46,27 +46,7 @@
         </article>
     </section>
 
-    <section id="team" data-panel="team" class="tophead mixitup supermix">
-        {% set team = field_render('team','page@'~data.page.id) %}
-        <article>
-            <div class="hlblock controls">
-                <h1>Équipe</h1>
-            </div>
-            <div class="filteritems team">
-                {% for barber in team %}<div class="item">
-                        <div class="pic imgLiquidTopCenter">
-                            <img src="{{ img(barber.photo.path) }}" alt="{{ barber.name }}">
-                        </div>
-                        <div class="text">
-                            <h3>{{ barber.name }}</h3>
-                            <span class="sub-info">{{ barber.profession }}</span>
-                            <p>{{ barber.description }}</p>
-                        </div>
-                    </div>{% endfor %}
-            </div>
-            <div class="pagerlist dark"></div>
-        </article>
-    </section>
+    {{ content_render('team') }}
 
     <section id="services" data-panel="services" class="tophead mixitup sixmix ID3h9gufkuz">
         {% set service_categories = field_render('service_categories','page@'~data.page.id) %}

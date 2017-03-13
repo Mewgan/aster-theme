@@ -23,6 +23,7 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
                 'list-post',
                 'single-post',
                 'grid-editor',
+                'team',
             ],
             'templates' => [
                 'aster_layout',
@@ -30,7 +31,8 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
                 'aster_post_list_partial',
                 'aster_post_list_partial',
                 'aster_single_post_partial',
-                'aster_navigation_partial'
+                'aster_navigation_partial',
+                'aster_team_partial',
             ],
             'medias' => [
                 '/public/media/thumbnail/theme-aster-thumbnail.png',
@@ -74,6 +76,7 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
                 'list-post',
                 'single-post',
                 'grid-editor',
+                'team',
             ],
             'templates' => [],
             'medias' => [],
