@@ -13,7 +13,7 @@ class LoadMedia extends AbstractFixture
     protected $data = [
         [
             'title' => 'Theme aster thumbnail',
-            'path' => '/public/media/thumbnail/theme-aster-thumbnail.png',
+            'path' => '/public/media/default/thumbnail/theme-aster-thumbnail.png',
             'type' => 'image/png',
             'size' => 137577,
             'access_level' => 2,

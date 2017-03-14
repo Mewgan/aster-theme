@@ -16,7 +16,7 @@ class LoadTheme extends AbstractFixture implements DependentFixtureInterface
         [
             'name' => 'Aster',
             'profession' => 'barber',
-            'thumbnail' => '/public/media/thumbnail/theme-aster-thumbnail.png',
+            'thumbnail' => '/public/media/default/thumbnail/theme-aster-thumbnail.png',
             'state' => 1,
         ]
     ];
