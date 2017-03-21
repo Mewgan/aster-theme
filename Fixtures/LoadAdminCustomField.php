@@ -321,97 +321,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             ],
             'content' => ['page@society-aster-home' => 'aster-the-master-vision']
         ],
-        'aster_home_service_category' => [
-            'scope' => 'specified',
-            'title' => 'Catégories de service',
-            'name' => 'service_categories',
-            'type' => 'repeater',
-            'position' => 6,
-            'parent' => null,
-            'cf' => 'Aster Home Page',
-            'data' => [],
-            'content' => [
-                'type' => 'repeater',
-                'rows@page@society-aster-home' => [0,1]
-            ]
-        ],
-        'aster_home_service_category_name' => [
-            'scope' => 'specified',
-            'title' => 'Nom',
-            'name' => 'name',
-            'type' => 'string',
-            'position' => 0,
-            'parent' => 'aster_home_service_category',
-            'cf' => 'Aster Home Page',
-            'data' => [],
-            'content' => ['page@society-aster-home' => ['Basics','Color']]
-        ],
-        'aster_home_service' => [
-            'scope' => 'specified',
-            'title' => 'Services',
-            'name' => 'services',
-            'type' => 'repeater',
-            'position' => 7,
-            'parent' => null,
-            'cf' => 'Aster Home Page',
-            'data' => [
-                'disposition' => 'col'
-            ],
-            'content' => [
-                'type' => 'repeater',
-                'rows@page@society-aster-home' => [0,1,2,3,4,5,6,7]
-            ]
-        ],
-        'aster_home_service_name' => [
-            'scope' => 'specified',
-            'title' => 'Nom',
-            'name' => 'name',
-            'type' => 'string',
-            'position' => 0,
-            'parent' => 'aster_home_service',
-            'cf' => 'Aster Home Page',
-            'data' => [],
-            'content' => ['page@society-aster-home' => ['Cut & Style','Quick cut','Coloration','Wash & Go','Evening Style','Highlights','Hightlights & Lowlights','Balayage']]
-        ],
-        'aster_home_service_cat' => [
-            'scope' => 'specified',
-            'title' => 'Catégorie',
-            'name' => 'category',
-            'type' => 'string',
-            'position' => 1,
-            'parent' => 'aster_home_service',
-            'cf' => 'Aster Home Page',
-            'data' => [],
-            'content' => ['page@society-aster-home' => ['Basics','Basics','Color','Basics','Basics','Color','Color','Color']]
-        ],
-        'aster_home_service_description' => [
-            'scope' => 'specified',
-            'title' => 'Description',
-            'name' => 'description',
-            'type' => 'textarea',
-            'position' => 2,
-            'parent' => 'aster_home_service',
-            'cf' => 'Aster Home Page',
-            'data' => [],
-            'content' => ['page@society-aster-home' => ['Basic cut and fashion style','Basic cut and fashion style','Full head coloration','Wash and blow dry','A festive hair do for your event','Basic cut and fashion style','A complete color transformation','Freestyle color application by one of our top stylists']]
-        ],
-        'aster_home_service_price' => [
-            'scope' => 'specified',
-            'title' => 'Prix',
-            'name' => 'price',
-            'type' => 'string',
-            'position' => 3,
-            'parent' => 'aster_home_service',
-            'cf' => 'Aster Home Page',
-            'data' => [],
-            'content' => ['page@society-aster-home' => ['$ 139','$ 89','$ 139','$ 149','$ 159','$ 39','$ 239','$ 339']]
-        ],
         'aster_home_testimonial' => [
             'scope' => 'specified',
             'title' => 'Témoignages',
             'name' => 'testimonial',
             'type' => 'repeater',
-            'position' => 8,
+            'position' => 6,
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [],
@@ -458,7 +373,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'title' => 'Gallerie',
             'name' => 'gallery',
             'type' => 'repeater',
-            'position' => 9,
+            'position' => 7,
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [],

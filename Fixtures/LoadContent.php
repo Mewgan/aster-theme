@@ -95,6 +95,21 @@ class LoadContent extends AbstractFixture implements DependentFixtureInterface
                 'class' => '',
                 'roles' => []
             ]
+        ],
+        /* Price */
+        'aster_price_content' => [
+            'cat_mod' => 'price',
+            'name' => 'Tarif',
+            'block' => 'price',
+            'website' => 'aster-society',
+            'module' => 'module_price',
+            'template' => 'aster_price_partial',
+            'section' => null,
+            'page' => 'society-aster-home',
+            'data' => [
+                'class' => '',
+                'categories' => []
+            ]
         ]
     ];
 

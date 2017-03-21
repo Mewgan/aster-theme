@@ -1,0 +1,27 @@
+<section id="services" data-panel="services" class="tophead mixitup sixmix ID3h9gufkuz">
+    <article>
+        <div class="hlblock">
+            <h1><span>Services</span></h1>
+            <div class="togglebox">
+                <div class="filterselect"><span class="selectlabel">Filtre: </span><span class="filtered">Tout</span>
+                </div>
+                <ul class="filterlist compactlist" data-label="Filter: " data-default="Tout" style="display: none;">
+                    <li><a class="filter active" data-filter="all">Tout</a></li>
+                    {% for cat in service_categories %}
+                        <li><a class="filter" data-filter=".{{ cat.slug }}">{{ cat.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="filteritems services">
+            {% for service in services %}
+                <div class="item {{ service.category.slug }}">
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description }}</p>
+                    <span class="price">{{ service.price }}</span>
+                </div>
+            {% endfor %}
+        </div><!--slickcarousel-->
+        <div class="pagerlist dark"></div>
+    </article>
+</section>
