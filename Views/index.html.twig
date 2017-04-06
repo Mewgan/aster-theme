@@ -8,7 +8,7 @@
                 <h1>{{ field_render('welcome_title','page@'~data.page.id) }}</h1>
             </div>
             <div class="content">
-                {{ field_render('welcome_text','page@'~data.page.id) }}
+                {{ field_render('welcome_text','page@'~data.page.id) | raw }}
             </div>
 
             {% set carrousel = field_render('carrousel','page@'~data.page.id) %}
