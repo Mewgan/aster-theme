@@ -118,8 +118,8 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'data' => [],
             'content' => [
                 'value' => [
-                    '#',
-                    '#',
+                    '',
+                    '',
                 ]
             ]
         ],
@@ -172,14 +172,14 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'parent' => null,
             'cf' => 'Aster Default Global',
             'data' => [],
-            'content' => ['value' => '<p><strong>Monday - Wednesday</strong><br/>
-                09 AM - 6 PM
+            'content' => ['value' => '<p><strong>Lundi - Mercredi</strong><br/>
+                09h - 18h
             </p>
-            <p><strong>Thursday - Saturday</strong><br/>
-                09 AM - 7 PM
+            <p><strong>Jeudi - Samedi</strong><br/>
+                09h - 19h
             </p>
-            <p><strong>Sunday</strong><br/>
-                closed
+            <p><strong>Dimanche</strong><br/>
+                fermé
             </p>']
         ],
         'aster_booking' => [
@@ -191,7 +191,7 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'parent' => null,
             'cf' => 'Aster Default Global',
             'data' => [],
-            'content' => ['value' => '#']
+            'content' => ['value' => '']
         ],
         /* Theme specific */
         'aster_header_subtitle' => [
@@ -203,7 +203,7 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'parent' => null,
             'cf' => 'Aster Specific Global',
             'data' => [],
-            'content' => ['value' => 'Services of the utmost quality']
+            'content' => ['value' => 'Services de la plus haute qualité']
         ],
         'aster_header_background' => [
             'scope' => 'global',
@@ -223,12 +223,12 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'scope' => 'specified',
             'title' => 'Titre de bienvenue',
             'name' => 'welcome_title',
-            'type' => 'string',
+            'type' => 'wysiwyg',
             'position' => 0,
             'parent' => null,
             'cf' => 'Aster Home Page',
             'data' => [],
-            'content' => ['page@society-aster-home' => 'BIENVENUE SUR ASTER SOCIETY']
+            'content' => ['page@society-aster-home' => 'BIENVENUE SUR {{ salon.name | capitalize }}']
         ],
         'aster_home_top_center_bloc' => [
             'scope' => 'specified',
@@ -240,11 +240,11 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'cf' => 'Aster Home Page',
             'data' => [],
             'content' => [
-                'page@society-aster-home' => 'Established in 1995, the salon always was a place, where people with sense for current trends found a stylist who understood to turn their vision into reality, and who was able to create a look that ephasized their individuality. 
-
-Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur.'
+                'page@society-aster-home' => '<p>Depuis 1986, notre salon prend soin de vous et de vos cheveux.</p>
+                  <p>Notre expertise nous a permis de nous élever  parmi les 10 meilleurs salons de coiffure de la capitale. Parce que votre satisfaction est notre priorité, nous donnons le meilleur de nous-même pour vous apporter le  meilleur des services et des conseils.</p>  
+                   <p>Notre équipe contient une grande diversité de professionnels : coiffeurs visagistes ou bien barbier sont à votre écoute pour réaliser tous vos souhaits et révéler votre personnalité. </p>
+                  <p>Un salon de coiffure chaleureux et convivial situé au cœur de Paris.</p>
+                  <p>Notre équipe est composée d\'expert, à votre écoute, pour réaliser tous vos souhaits.</p>'
             ]
         ],
         'aster_home_carrousel' => [
@@ -346,13 +346,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'data' => [],
             'content' => ['page@society-aster-home' =>
                 [
-                    '<p>I was blown away - literally - by the style Gina did for my
-                            red carpet event. <br/>She managed to make me look fabulous but still catch my personal style.  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                        </p>',
-                    '<p>When it comes to hair, there shouldn\'t be compromise.<br/>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.Est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                        </p>',
-                    '<p>Nobody\'s got time for bad hair days!<br/>Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                        </p>'
+                    '<p>J\' y vais pour une couleur et voilà je suis conquise j\'aime ce salon pour toutes ses attentions, sa gentillesse et ses conseils</p>',
+                    '<p>Une équipe juste formidable... Une prestation sur mesure et des conseils personnalisés. </p>
+                    <p>Un retour au naturel hors du commun. Pour finir une cliente satisfaite.</p>
+                    <p>Merci à l\'équipe.</p>',
+                    '<p>Un personnel attentif et aux petits soins, des prestations adaptées aux attentes des clientes, le tout dans un cadre qui aspire au bien être et à la détente.</p>'
 
                 ]
             ]
@@ -411,11 +409,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'cf' => 'Aster Home Page',
             'data' => [],
             'content' => ['page@society-aster-home' => [
-                'Sabrina with a twist',
-                'Kameko on her big day',
-                'The redhead',
-                'Adam showing off',
-                'Boys want to look good too',
+                'Sabrina',
+                'Kameko',
+                'Mathilde',
+                'Adam',
+                'Nicolas',
                 '*caption this* :-)',
             ]]
         ],
@@ -429,12 +427,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus molli
             'cf' => 'Aster Home Page',
             'data' => [],
             'content' => ['page@society-aster-home' => [
-                'Our top stylist Josh did a grat job with this \'twisted\' hair style for Sabrina.',
-                'Kameko trusted us with the hair do for the big day. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.',
-                'There is only one person Marin entrusts her red mane...',
-                'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo.',
-                'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo.',
-                'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo.',
+                'Description ...',
+                'Description ...',
+                'Description ...',
+                'Description ...',
+                'Description ...',
+                'Description ...',
             ]]
         ],
     ];

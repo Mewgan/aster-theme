@@ -115,7 +115,11 @@
             <p>{{ address.address }}<br/>
                 {{ address.postal_code }} {{ address.city }}<br/>
                 {{ address.country }}
-            </p>
+            </p><br/>
+            {% set booking_link = field_render('booking_link') %}
+            {% if booking_link != '' %}
+                <p><a class="button" href="{{ booking_link }}">Réserver</a></p>
+            {% endif %}
         </div>
     </article>
 

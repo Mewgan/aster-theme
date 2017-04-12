@@ -5,13 +5,13 @@
     <section id="about" data-panel="about" class="col-3 slider hl-text-slider">
         <article>
             <div class="hlblock">
-                <h1>{{ field_render('welcome_title','page@'~data.page.id) }}</h1>
+                <h1>{{ include(template_from_string(field_render('welcome_title','page'))) }}</h1>
             </div>
             <div class="content">
-                {{ field_render('welcome_text','page@'~data.page.id) | raw }}
+                {{ field_render('welcome_text','page') | raw }}
             </div>
 
-            {% set carrousel = field_render('carrousel','page@'~data.page.id) %}
+            {% set carrousel = field_render('carrousel','page') %}
             <div class="sliderwrapper slickexpandable">
                 <div class="slick">
                     {% for slide in carrousel %}
@@ -23,10 +23,10 @@
     </section>
 
     <section id="panorama" data-panel="panorama" class="col-2 panorama-left">
-        {% set panorama = field_render('second_bloc_image','page@'~data.page.id) %}
+        {% set panorama = field_render('second_bloc_image','page') %}
         <article>
             <div class="hlblock">
-                <h1>{{ field_render('second_bloc_title','page@'~data.page.id) }}</h1>
+                <h1>{{ field_render('second_bloc_title','page') }}</h1>
             </div><div class="content panorama" data-panorama="{{ img(panorama.path) }}" style="background-image: url({{ img(panorama.path) }}">
                 <a class="pan_controls icon-salon_play"></a>
             </div>
@@ -34,7 +34,7 @@
     </section>
 
     <section id="mastersvision" data-panel="mastersvision" class="col-3 pic-hl-text">
-        {% set actu = field_render('third_post_bloc','page@'~data.page.id) %}
+        {% set actu = field_render('third_post_bloc','page') %}
         <article>
             <div class="pic">
                 <img src="{{ img(actu.thumbnail.path) }}" alt="{{ actu.thumbnail.alt }}">
@@ -51,7 +51,7 @@
     {{ content_render('price') }}
 
     <section id="testimonials" data-panel="testimonials" class="col-2 testimonials testimonials-left">
-        {% set testimonial = field_render('testimonial','page@'~data.page.id) %}
+        {% set testimonial = field_render('testimonial','page') %}
         <article>
             <div class="hlblock">
                 <h1>Témoignages</h1>
@@ -74,7 +74,7 @@
             </div>
             <div class="polaroidgallery photostack hidebullets">
                 <div>
-                    {% set galleries = field_render('gallery','page@'~data.page.id) %}
+                    {% set galleries = field_render('gallery','page') %}
                     {% for gallery in galleries %}
                     <figure>
                         <a class="photostack-img imgLiquid"><img src="{{ img(gallery.photo.path) }}" alt="{{ gallery.photo.alt }}"/></a>

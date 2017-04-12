@@ -115,6 +115,8 @@ class LoadContent extends AbstractFixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
+        $this->addContentCallback('post', 'getPostContent');
+        $this->addContentCallback('navigation', 'getNavigationContent');
         $this->loadContent($manager);
     }
 
@@ -136,7 +138,6 @@ class LoadContent extends AbstractFixture implements DependentFixtureInterface
             'Jet\Modules\Team\Fixtures\LoadTeamModule',
             'Jet\Themes\Aster\Fixtures\LoadPost',
             'Jet\Themes\Aster\Fixtures\LoadNavigation',
-            'Jet\Themes\Aster\Fixtures\LoadTeamRole',
         ];
     }
 }

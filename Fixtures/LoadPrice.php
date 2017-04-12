@@ -12,101 +12,85 @@ class LoadPrice extends AbstractFixture implements DependentFixtureInterface
 
     protected $data = [
         'aster-woman-price-1' => [
-            'title' => 'WOMAN\'S HAIRCUT',
-            'price' => '80€',
+            'title' => 'Brushing',
+            'price' => '40 € - 55 €',
             'position' => 0,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
+            'description' => '',
             'category' => 'woman-service-category',
             'website' => 'aster-society'
         ],
         'aster-woman-price-2' => [
-            'title' => 'WOMAN\'S HAIRCUT',
-            'price' => '45€',
+            'title' => 'Mèches et balayages',
+            'price' => '36 €',
             'position' => 1,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
+            'description' => '',
             'category' => 'woman-service-category',
             'website' => 'aster-society'
         ],
         'aster-woman-price-3' => [
-            'title' => 'WOMAN\'S HAIRCUT',
-            'price' => '80€',
+            'title' => 'Chignon et coupe d\'exception',
+            'price' => '98 €',
             'position' => 2,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
+            'description' => '',
             'category' => 'woman-service-category',
             'website' => 'aster-society'
         ],
         'aster-woman-price-4' => [
-            'title' => 'WOMAN\'S HAIRCUT',
-            'price' => '55€',
+            'title' => 'Shampoing + couleur + coupe + brushing',
+            'price' => '90 €',
             'position' => 3,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+            'description' => '',
             'category' => 'woman-service-category',
             'website' => 'aster-society'
         ],
         'aster-woman-price-5' => [
-            'title' => 'WOMAN\'S HAIRCUT',
-            'price' => '100€',
+            'title' => 'Shampoing + couleur + coupe',
+            'price' => '60 €',
             'position' => 4,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
+            'description' => '',
             'category' => 'woman-service-category',
             'website' => 'aster-society'
         ],
         'aster-woman-price-6' => [
-            'title' => 'WOMAN\'S HAIRCUT',
-            'price' => '60€',
+            'title' => 'Shampoing',
+            'price' => '4 € - 24 €',
             'position' => 5,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
+            'description' => '',
             'category' => 'woman-service-category',
             'website' => 'aster-society'
         ],
         'aster-man-price-1' => [
-            'title' => 'MAN\'S HAIRCUT',
-            'price' => '20€',
+            'title' => 'Taille de barbe',
+            'price' => '8 €',
             'position' => 0,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
+            'description' => '',
             'category' => 'man-service-category',
             'website' => 'aster-society'
         ],
         'aster-man-price-2' => [
-            'title' => 'MAN\'S HAIRCUT',
-            'price' => '35€',
+            'title' => 'Entretien des cheveux blancs',
+            'price' => '10 €',
             'position' => 1,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
+            'description' => '',
             'category' => 'man-service-category',
             'website' => 'aster-society'
         ],
         'aster-man-price-3' => [
-            'title' => 'MAN\'S HAIRCUT',
-            'price' => '45€',
+            'title' => 'Coupe',
+            'price' => '18 €',
             'position' => 2,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
+            'description' => '',
             'category' => 'man-service-category',
             'website' => 'aster-society'
         ],
         'aster-other-price-1' => [
-            'title' => 'CHILD\'S HAIRCUT',
-            'price' => '8€',
+            'title' => 'Coupe',
+            'price' => '14 €',
             'position' => 0,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
+            'description' => '',
             'category' => 'other-service-category',
             'website' => 'aster-society'
-        ],
-        'aster-other-price-2' => [
-            'title' => 'CHILD\'S HAIRCUT',
-            'price' => '12€',
-            'position' => 1,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
-            'category' => 'other-service-category',
-            'website' => 'aster-society'
-        ],
-        'heliotrope-other-price-3' => [
-            'title' => 'CHILD\'S HAIRCUT',
-            'price' => '14€',
-            'position' => 2,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti animi voluptatibus quaerat at, dicta quasi officia cupiditate enim, consequatur?',
-            'category' => 'other-service-category',
-            'website' => 'aster-society'
-        ],
+        ]
     ];
 
     public function load(ObjectManager $manager)
@@ -124,7 +108,6 @@ class LoadPrice extends AbstractFixture implements DependentFixtureInterface
     {
         return [
             'Jet\Themes\Aster\Fixtures\LoadWebsite',
-            'Jet\Themes\Aster\Fixtures\LoadMedia',
             'Jet\Modules\Price\Fixtures\LoadServiceCategory',
         ];
     }

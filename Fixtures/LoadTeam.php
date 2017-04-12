@@ -17,8 +17,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
             'photo' => '/src/Themes/Aster/Resources/public/img/team-gina.jpg',
             'gender' => 0,
             'position' => 0,
-            'description' => 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-            'roles' => ['aster-evening-role'],
+            'description' => '',
+            'roles' => ['barber-role'],
             'website' => 'aster-society'
         ],
         'aster-adam-team' => [
@@ -26,8 +26,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
             'photo' => '/src/Themes/Aster/Resources/public/img/team-adam.jpg',
             'gender' => 1,
             'position' => 1,
-            'description' => 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-            'roles' => ['aster-men-role'],
+            'description' => '',
+            'roles' => ['barber-role'],
             'website' => 'aster-society'
         ],
         'aster-josh-team' => [
@@ -35,8 +35,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
             'photo' => '/src/Themes/Aster/Resources/public/img/team-josh.jpg',
             'gender' => 1,
             'position' => 2,
-            'description' => 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-            'roles' => ['aster-fashion-role'],
+            'description' => '',
+            'roles' => ['barber-role'],
             'website' => 'aster-society'
         ],
         'aster-valerie-team' => [
@@ -44,8 +44,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
             'photo' => '/src/Themes/Aster/Resources/public/img/team-valerie.jpg',
             'gender' => 0,
             'position' => 3,
-            'description' => 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-            'roles' => ['aster-color-role'],
+            'description' => '',
+            'roles' => ['barber-role'],
             'website' => 'aster-society'
         ],
         'aster-lucy-team' => [
@@ -53,8 +53,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
             'photo' => '/src/Themes/Aster/Resources/public/img/team-lucy.jpg',
             'gender' => 0,
             'position' => 4,
-            'description' => 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-            'roles' => ['aster-extension-role'],
+            'description' => '',
+            'roles' => ['barber-role'],
             'website' => 'aster-society'
         ],
         'aster-mike-team' => [
@@ -62,8 +62,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
             'photo' => '/src/Themes/Aster/Resources/public/img/team-mike.jpg',
             'gender' => 1,
             'position' => 5,
-            'description' => 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-            'roles' => ['aster-men-role'],
+            'description' => '',
+            'roles' => ['barber-role'],
             'website' => 'aster-society'
         ],
         'aster-robin-team' => [
@@ -71,8 +71,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
             'photo' => '/src/Themes/Aster/Resources/public/img/team-robin.jpg',
             'gender' => 0,
             'position' => 6,
-            'description' => 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-            'roles' => ['aster-color-role'],
+            'description' => '',
+            'roles' => ['barber-role'],
             'website' => 'aster-society'
         ],
         'aster-jessica-team' => [
@@ -80,8 +80,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
             'photo' => '/src/Themes/Aster/Resources/public/img/team-jessica.jpg',
             'gender' => 0,
             'position' => 7,
-            'description' => 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-            'roles' => ['aster-evening-role'],
+            'description' => '',
+            'roles' => ['barber-role'],
             'website' => 'aster-society'
         ],
         'aster-amy-team' => [
@@ -89,8 +89,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
             'photo' => '/src/Themes/Aster/Resources/public/img/team-amy.jpg',
             'gender' => 0,
             'position' => 8,
-            'description' => 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient.',
-            'roles' => ['aster-fashion-role'],
+            'description' => '',
+            'roles' => ['barber-role'],
             'website' => 'aster-society'
         ],
     ];
@@ -110,8 +110,8 @@ class LoadTeam extends AbstractFixture implements DependentFixtureInterface
     {
         return [
             'Jet\Themes\Aster\Fixtures\LoadWebsite',
-            'Jet\Themes\Aster\Fixtures\LoadTeamRole',
             'Jet\Themes\Aster\Fixtures\LoadMedia',
+            'Jet\Modules\Team\Fixtures\LoadTeamRole',
         ];
     }
 }

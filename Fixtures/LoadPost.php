@@ -16,14 +16,13 @@ class LoadPost extends AbstractFixture implements DependentFixtureInterface
     protected $data = [
         /* Aster website posts */
         'aster-the-master-vision' => [
-            'title' => 'The master vision',
-            'slug' => 'the-master-vision',
-            'short_description' => 'Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'content' => '<p>Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur.</p>
-                <p>Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    <span class="signature">Jacques Aux Mains D’Argent</span>
-                </p>',
+            'title' => 'Présentation du salon',
+            'slug' => 'presentation-du-salon',
+            'short_description' => 'En tant que professionnels de la coiffure, nous vous proposons de découvrir notre passion au travers de notre site internet. Vous y trouverez des informations générales sur nos prestations et nos tarifs.',
+            'content' => '<p>En tant que professionnels de la coiffure, nous vous proposons de découvrir notre passion au travers de notre site internet. Vous y trouverez des informations générales sur nos prestations et nos tarifs.</p>
+<p>Nos coiffeurs et stylistes vous attendent dans notre salon et vous conseillent du lundi au samedi de 8h à 20h.</p> 
+</p>N\'hésitez pas à nous contacter par téléphone pour prendre rendez-vous ou obtenir plus d\'informations.</p> 
+<p>A bientôt dans notre salon et bonne visite !</p>',
             'thumbnail' => '/src/Themes/Aster/Resources/public/img/master.jpg',
             'categories' => [
                 'actualite'
@@ -89,8 +88,8 @@ Nos coiffeurs sont à votre écoute pour comprendre vos envies et trouver la cou
         'aster-prestations-coiffure' => [
             'title' => 'Prestations coiffure',
             'slug' => 'prestations-coiffure',
-            'short_description' => 'Aster Society propose les services "classiques" de la coiffure',
-            'content' => 'Aster Society propose les services "classiques" de la coiffure, pour hommes, femmes et enfants : shampoing, coupe, brushing, ... Vous trouverez un résumé plus détaillé de nos prestations dans la partie Tarifs de notre site.',
+            'short_description' => 'Notre salon propose les services "classiques" de la coiffure',
+            'content' => 'Notre salon propose les services "classiques" de la coiffure, pour hommes, femmes et enfants : shampoing, coupe, brushing, ... Vous trouverez un résumé plus détaillé de nos prestations dans la partie Tarifs de notre site.',
             'thumbnail' => '/public/media/default/post/article-5.jpg',
             'categories' => [
                 'service'
