@@ -55,7 +55,7 @@ class LoadNavigationItem extends AbstractFixture implements DependentFixtureInte
             'website' => 'aster-society',
         ],
         [
-            'title' => 'Galeries',
+            'title' => 'Galerie',
             'navigation' => 'aster-menu',
             'parent' => null,
             'children' => [],

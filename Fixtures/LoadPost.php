@@ -16,8 +16,8 @@ class LoadPost extends AbstractFixture implements DependentFixtureInterface
     protected $data = [
         /* Aster website posts */
         'aster-the-master-vision' => [
-            'title' => 'Présentation du salon',
-            'slug' => 'presentation-du-salon',
+            'title' => 'A propos de nous',
+            'slug' => 'a-propos-de-nous',
             'short_description' => 'En tant que professionnels de la coiffure, nous vous proposons de découvrir notre passion au travers de notre site internet. Vous y trouverez des informations générales sur nos prestations et nos tarifs.',
             'content' => '<p>En tant que professionnels de la coiffure, nous vous proposons de découvrir notre passion au travers de notre site internet. Vous y trouverez des informations générales sur nos prestations et nos tarifs.</p>
 <p>Nos coiffeurs et stylistes vous attendent dans notre salon et vous conseillent du lundi au samedi de 8h à 20h.</p> 
