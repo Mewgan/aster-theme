@@ -17,7 +17,7 @@
             {% for service in services %}
                 <div class="item {{ service.category.slug }}">
                     <h3>{{ service.title }}</h3>
-                    <p>{{ service.description }}</p>
+                    <p>{{ service.description | raw }}</p>
                     <span class="price">{{ service.price }}</span>
                 </div>
             {% endfor %}

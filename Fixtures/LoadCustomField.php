@@ -56,7 +56,7 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
             'website' => 'Aster Website'
         ],
         'Aster Seo' => [
-            'title' => 'SEO',
+            'title' => 'SEO Référencement naturel',
             'rule' => 'everywhere_rule',
             'operation' => '=',
             'value' => null,
