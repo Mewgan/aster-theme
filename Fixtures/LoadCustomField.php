@@ -27,7 +27,7 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
             'website' => 'Aster Website'
         ],
         'Aster Global Seo' => [
-            'title' => 'SEO Global',
+            'title' => 'Google analytics',
             'rule' => 'global_rule',
             'operation' => '=',
             'value' => null,

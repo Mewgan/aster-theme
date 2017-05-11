@@ -7,6 +7,7 @@
         <title>{% block title %}{{ field_render('meta_title','page') }}{% endblock %}</title>
         <meta name="description" content="{% block description %}{{ field_render('meta_description','page') }}{% endblock %}">
         <meta name="keywords" content="{% block keywords %}{{ field_render('meta_keywords','page') }}{% endblock %}" />
+        <link rel="icon" href="{{ img(field_render('favicon').path) }}" />
         {# debugbar #}
         {#{{ debug_bar_header()|raw }}#}
         {# End debugbar #}

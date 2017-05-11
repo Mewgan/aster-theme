@@ -126,7 +126,7 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
         /* Global seo */
         'aster_global_seo_analytics' => [
             'scope' => 'global',
-            'title' => 'Google | Analytics',
+            'title' => 'Google Analytics',
             'name' => 'meta_title',
             'type' => 'string',
             'position' => 0,
@@ -137,6 +137,19 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'content' => []
         ],
         /* Global skin */
+        'aster_favicon' => [
+            'scope' => 'global',
+            'title' => 'Favicon',
+            'name' => 'favicon',
+            'type' => 'media',
+            'position' => 0,
+            'parent' => null,
+            'cf' => 'Aster Default Global',
+            'data' => [
+                'media_render_type' => 'object'
+            ],
+            'content' => ['value' => '/public/media/default/favicon.ico']
+        ],
         'aster_logo' => [
             'scope' => 'global',
             'title' => 'Logo',
