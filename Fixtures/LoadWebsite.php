@@ -18,6 +18,7 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
             'theme' =>  'Aster',
             'layout' => 'aster_layout',
             'render_system' => 'php',
+            'expiration_date' => '2017-12-20 10:00:00',
             'modules' => [
                 'navigation',
                 'list-post',
@@ -73,6 +74,7 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
             'theme' =>  'Aster',
             'layout' => 'aster_layout',
             'render_system' => 'php',
+            'expiration_date' => '2017-12-20 10:00:00',
             'modules' => [
                 'navigation',
                 'list-post',
