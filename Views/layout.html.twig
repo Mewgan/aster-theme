@@ -139,7 +139,7 @@
     <div class="content">
         <div class="copyright">
             <img data-src="{{ img(field_render('loading_media').path) }}" class="lazyload" alt="{{ salon.name }}">
-            <p>Copyright {{ salon.name }} - Tous droit réservés</p>
+            <p>Copyright {{ "now" | date("Y") }} - {{ salon.name }} - Tous droit réservés</p>
         </div>
     </div>
     <a id="back2top" class="backtotop icon-salon_arrowup">Retour en haut</a>
