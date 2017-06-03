@@ -11,7 +11,7 @@
         {# debugbar #}
         {#{{ debug_bar_header()|raw }}#}
         {# End debugbar #}
-
+        <script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
         {% for stylesheet in data.stylesheets %}
             {% if stylesheet.type == 'file' %}
                 <link rel="stylesheet" href="{{ asset(stylesheet.content) }}">
@@ -146,7 +146,6 @@
 </section>
 
 <!-- all scripts -->
-<script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('libs/modernizr/modernizr.min.js') }}"></script>
 <script src="{{ asset('libs/lazysizes/lazysizes.min.js') }}"></script>
 <script src="{{ theme_asset('plugins.min.js') }}"></script>
