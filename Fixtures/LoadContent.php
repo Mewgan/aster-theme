@@ -30,7 +30,8 @@ class LoadContent extends AbstractFixture implements DependentFixtureInterface
             'data' => [
                 'class' => '',
                 'route_name' => 'module:post.type:dynamic.action:read',
-                'total_row' => 100,
+                'max' => 100,
+                'total' => '',
                 'db' => [],
                 'link' => [
                     [
