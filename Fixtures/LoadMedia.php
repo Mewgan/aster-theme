@@ -17,7 +17,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/png',
             'size' => 137577,
             'access_level' => 2,
-            'scope' => 'global',
             'alt' => 'Theme aster thumbnail'
         ],
         [
@@ -26,7 +25,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/png',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'global',
             'alt' => 'Logo aster'
         ],
         [
@@ -35,7 +33,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/png',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'global',
             'alt' => 'Loading logo aster'
         ],
         [
@@ -44,7 +41,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'global',
             'alt' => 'Header background image'
         ],
         [
@@ -53,7 +49,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Theme aster home page slide 1'
         ],
         [
@@ -62,7 +57,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Theme aster home page slide 2'
         ],
         [
@@ -71,7 +65,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Theme aster home page slide 3'
         ],
         [
@@ -80,7 +73,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Theme aster home page panorama image'
         ],
         [
@@ -89,7 +81,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Gina'
         ],
         [
@@ -98,7 +89,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Adam'
         ],
         [
@@ -107,7 +97,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Josh'
         ],[
             'title' => 'Theme aster home page team Valerie image',
@@ -124,7 +113,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Lucy'
         ],
         [
@@ -133,7 +121,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Mike'
         ],
         [
@@ -142,7 +129,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Robin'
         ],
         [
@@ -151,7 +137,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Jessica'
         ],
         [
@@ -160,7 +145,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Amy'
         ],
         [
@@ -169,7 +153,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Sabrina'
         ],
         [
@@ -178,7 +161,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Kameko'
         ],
         [
@@ -187,7 +169,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Marin'
         ],
         [
@@ -196,7 +177,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Josh'
         ],
         [
@@ -205,7 +185,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Steve'
         ],
         [
@@ -214,7 +193,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Boy'
         ],
         [
@@ -223,7 +201,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Theme aster home page actualite image'
         ],
     ];

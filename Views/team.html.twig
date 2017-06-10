@@ -11,7 +11,7 @@
                 <div class="text">
                     <h3>{{ barber.full_name }}</h3>
                     <span class="sub-info"> {% for role in barber.roles %}{{ role.name }} | {% endfor %}</span>
-                    <p>{{ barber.description }}</p>
+                    <p>{{ barber.description | raw }}</p>
                 </div>
                 </div>{% endfor %}
         </div>
