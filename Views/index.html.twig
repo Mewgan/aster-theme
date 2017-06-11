@@ -46,9 +46,9 @@
         </article>
     </section>
 
-    {{ content_render('team') }}
+    {{ content_render('team') | raw }}
 
-    {{ content_render('price') }}
+    {{ content_render('price') | raw }}
 
     <section id="testimonials" data-panel="testimonials" class="col-2 testimonials testimonials-left">
         {% set testimonial = field_render('testimonial','page') %}
@@ -91,6 +91,6 @@
         </article>
     </section>
 
-    {{ content_render('list_home_post') }}
+    {{ content_render('list_home_post') | raw }}
 
 {% endblock %}

@@ -1,3 +1,7 @@
+<< _seo.offsetSet('title', '{{ field_render('meta_title', 'post@' ~ post.id) }}') >>
+<< _seo.offsetSet('description', '{{ field_render('meta_description', 'post@' ~ post.id) }}') >>
+<< _seo.offsetSet('keywords', '{{ field_render('meta_keywords', 'post@' ~ post.id) }}') >>
+
 <section id="post" data-panel="post" class="col-3 pic-hl-text">
     <article>
         <div class="pic">
@@ -9,8 +13,3 @@
         </div>
     </article>
 </section>
-<script>
-    document.title = "{{ field_render('meta_title', 'post@' ~ post.id) }}";
-    $('meta[name=description]').attr('content', "{{ field_render('meta_description', 'post@' ~ post.id) }}");
-    $('meta[name=keywords]').attr('content', "{{ field_render('meta_keywords', 'post@' ~ post.id) }}");
-</script>
