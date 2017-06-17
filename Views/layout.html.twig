@@ -3,59 +3,59 @@
 <head>
     {% block head %}
 
-        {{ _seo.offsetSet('title', field_render('meta_title', 'page')) }}
-        {{ _seo.offsetSet('description', field_render('meta_description', 'page')) }}
-        {{ _seo.offsetSet('keywords', field_render('meta_keywords', 'page')) }}
+    {{ _seo.offsetSet('title', field_render('meta_title', 'page')) }}
+    {{ _seo.offsetSet('description', field_render('meta_description', 'page')) }}
+    {{ _seo.offsetSet('keywords', field_render('meta_keywords', 'page')) }}
 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-        <title>{% block title deferred %}{{ _seo.title }}{% endblock %}</title>
-        <meta name="description" content="{% block description deferred %}{{ _seo.description }}{% endblock %}">
-        <meta name="keywords" content="{% block keywords deferred %}{{ _seo.keywords }}{% endblock %}" />
-        <link rel="icon" href="{{ img(field_render('favicon').path) }}" />
-        {# debugbar #}
-        {#{{ debug_bar_header()|raw }}#}
-        {# End debugbar #}
-        <script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
-        {% for stylesheet in data.stylesheets %}
-            {% if stylesheet.type == 'file' %}
-                <link rel="stylesheet" href="{{ asset(stylesheet.content) }}">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>{% block title deferred %}{{ _seo.title }}{% endblock %}</title>
+    <meta name="description" content="{% block description deferred %}{{ _seo.description }}{% endblock %}">
+    <meta name="keywords" content="{% block keywords deferred %}{{ _seo.keywords }}{% endblock %}" />
+    <link rel="icon" href="{{ img(field_render('favicon').path) }}" />
+    {# debugbar #}
+    {#{{ debug_bar_header()|raw }}#}
+    {# End debugbar #}
+    <script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
+    {% for stylesheet in data.stylesheets %}
+        {% if stylesheet.type == 'file' %}
+            <link rel="stylesheet" href="{{ asset(stylesheet.content) }}">
+        {% else %}
+            <style>
+                {{ stylesheet.content }}
+            </style>
+        {% endif %}
+    {% endfor %}
+
+    {% for library in data.libraries %}
+        {% if library.category == 'css' %}
+            {% if library.type == 'file' %}
+                <link rel="stylesheet" href="{{ asset(library.path) }}">
             {% else %}
-                <style>
-                    {{ stylesheet.content }}
-                </style>
+                <link rel="stylesheet" href="{{ library.path }}">
             {% endif %}
-        {% endfor %}
+        {% endif %}
+    {% endfor %}
 
-        {% for library in data.libraries %}
-            {% if library.category == 'css' %}
-                {% if library.type == 'file' %}
-                    <link rel="stylesheet" href="{{ asset(library.path) }}">
-                {% else %}
-                    <link rel="stylesheet" href="{{ library.path }}">
-                {% endif %}
-            {% endif %}
-        {% endfor %}
+    <link href="https://fonts.googleapis.com/css?family=Lato|Poiret+One|Rambla" rel="stylesheet">
+    <link rel="stylesheet" href="{{ theme_asset('normalize.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset('salon-font.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset('plugins.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset('style.css') }}">
 
-        <link href="https://fonts.googleapis.com/css?family=Lato|Poiret+One|Rambla" rel="stylesheet">
-        <link rel="stylesheet" href="{{ theme_asset('normalize.css') }}">
-        <link rel="stylesheet" href="{{ theme_asset('salon-font.css') }}">
-        <link rel="stylesheet" href="{{ theme_asset('plugins.css') }}">
-        <link rel="stylesheet" href="{{ theme_asset('style.css') }}">
-
-        {% block css %}{% endblock %}
-        <style>
-            #intro .logo {
-                background-image: url({{ img(field_render('loading_media').path) }});
-            }
-            {{ field_render('css_block') }}
-        </style>
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    {% block css %}{% endblock %}
+    <style>
+        #intro .logo {
+            background-image: url({{ img(field_render('loading_media').path) }});
+        }
+        {{ field_render('css_block') }}
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     {% endblock %}
 
@@ -166,20 +166,20 @@
 {% endfor %}
 
 {% if address.latitude is not empty %}
-<script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyArNGSSl-KPS23l24EilPNQhfmEw_V8BtI&libraries=places&region=FR"></script>
-<script>
-    $(document).ready(function () {
-        var latlng = new google.maps.LatLng({{ address.latitude }}, {{ address.longitude }});
-        var map = new google.maps.Map(document.getElementById('gmap'), {
-            zoom: 13,
-            center: latlng
-        });
-        new google.maps.Marker({
-            position: latlng,
-            map: map
-        });
-    })
-</script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyArNGSSl-KPS23l24EilPNQhfmEw_V8BtI&libraries=places&region=FR"></script>
+    <script>
+        $(document).ready(function () {
+            var latlng = new google.maps.LatLng({{ address.latitude }}, {{ address.longitude }});
+            var map = new google.maps.Map(document.getElementById('gmap'), {
+                zoom: 13,
+                center: latlng
+            });
+            new google.maps.Marker({
+                position: latlng,
+                map: map
+            });
+        })
+    </script>
 {% endif %}
 {% block js %}{% endblock %}
 <script>

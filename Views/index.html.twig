@@ -76,15 +76,15 @@
                 <div>
                     {% set galleries = field_render('gallery','page') %}
                     {% for gallery in galleries %}
-                    <figure>
-                        <a class="photostack-img imgLiquid"><img src="{{ img(gallery.photo.path) }}" alt="{{ gallery.photo.alt }}"/></a>
-                        <figcaption>
-                            <h2 class="photostack-title">{{ gallery.title }}</h2>
-                            <div class="photostack-back">
-                                <p>{{ gallery.content }}</p>
-                            </div>
-                        </figcaption>
-                    </figure>
+                        <figure>
+                            <a class="photostack-img imgLiquid"><img src="{{ img(gallery.photo.path) }}" alt="{{ gallery.photo.alt }}"/></a>
+                            <figcaption>
+                                <h2 class="photostack-title">{{ gallery.title }}</h2>
+                                <div class="photostack-back">
+                                    <p>{{ gallery.content }}</p>
+                                </div>
+                            </figcaption>
+                        </figure>
                     {% endfor %}
                 </div>
             </div><!--polaroidgallery-->
