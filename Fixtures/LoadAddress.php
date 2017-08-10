@@ -2,8 +2,8 @@
 
 namespace Jet\Themes\Aster\Fixtures;
 
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Jet\Services\LoadFixture;
 
@@ -14,18 +14,20 @@ class LoadAddress extends AbstractFixture implements DependentFixtureInterface
 
     protected $data = [
         'aster' => [
+            'alias' => 'Adresse de la société',
             'address' => '1 Rue Portefoin',
             'city' => 'Paris 3',
             'postal_code' => '75003',
-            'society' => 'Aster Society',
             'country' => 'FRANCE',
+            'account' => 'sumugan.sinnarasa@desico.fr'
         ],
         'luffy-address' => [
+            'alias' => 'Adresse de la société',
             'address' => '11 Rue Ave Maria',
             'city' => 'Paris',
             'postal_code' => '75000',
-            'society' => 'Luffy Society',
             'country' => 'FRANCE',
+            'account' => 'luffy@onepiece.com'
         ]
     ];
 
@@ -46,7 +48,7 @@ class LoadAddress extends AbstractFixture implements DependentFixtureInterface
     function getDependencies()
     {
         return [
-            'Jet\Themes\Aster\Fixtures\LoadSociety'
+            'Jet\DataFixtures\LoadAccount',
         ];
     }
 }

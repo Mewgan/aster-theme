@@ -16,12 +16,14 @@ class LoadSociety extends AbstractFixture implements DependentFixtureInterface
             'name' => 'Aster Society',
             'email' => 'contact@aster.com',
             'phone' => '0123456789',
+            'address' => 'aster',
             'account' => 'sumugan.sinnarasa@desico.fr'
         ],
         [
             'name' => 'Luffy Society',
             'email' => 'contact@luffy.com',
             'phone' => '0123456789',
+            'address' => 'luffy-address',
             'account' => 'luffy@onepiece.com'
         ]
     ];
@@ -40,7 +42,8 @@ class LoadSociety extends AbstractFixture implements DependentFixtureInterface
     function getDependencies()
     {
         return [
-            'Jet\DataFixtures\LoadAccount'
+            'Jet\DataFixtures\LoadAccount',
+            'Jet\Themes\Aster\Fixtures\LoadAddress'
         ];
     }
 }
