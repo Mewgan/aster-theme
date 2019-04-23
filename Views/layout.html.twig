@@ -63,7 +63,7 @@
 <body class="{% block bodyClass %}{% endblock %} panelsnap onepage flexheader">
 
 {% set society = data_render('Jet\\Models\\Society', ['s.name']) %}
-{% set address = data_render('Jet\\Models\\Address', ['a.postal_code','a.country','a.latitude','a.longitude']) %}
+{% set address = data_render('Jet\\Models\\Address', ['a.address', 'a.city', 'a.postal_code','a.country','a.latitude','a.longitude']) %}
 
 <div id="intro">
     <div class="logo"></div>
